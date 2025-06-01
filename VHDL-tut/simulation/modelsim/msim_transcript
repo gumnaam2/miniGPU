@@ -1,0 +1,294 @@
+# Reading pref.tcl
+# do SoC-tut_run_msim_gate_vhdl.do
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work gate_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {SoC-tut.vho}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:30:53 on Jun 01,2025
+# vcom -reportprogress 300 -93 -work work SoC-tut.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package fiftyfivenm_atom_pack
+# -- Loading package fiftyfivenm_components
+# -- Compiling entity hard_block
+# -- Compiling architecture structure of hard_block
+# -- Compiling entity muxnbit
+# -- Compiling architecture structure of muxnbit
+# End time: 20:30:53 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/mux_pkg.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:31:09 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/mux_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package mux_pkg
+# -- Compiling entity mux
+# -- Compiling architecture muxarch of mux
+# End time: 20:31:09 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:31:12 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package mux_pkg
+# -- Compiling entity muxnbit
+# -- Compiling architecture muxnbarch of muxnbit
+# End time: 20:31:12 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:31:16 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb
+# -- Compiling architecture tb_int_arc of tb
+# End time: 20:31:16 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb
+# vsim work.tb 
+# Start time: 20:31:20 on Jun 01,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(tb_int_arc)
+# ** Warning: (vsim-3473) Component instance "dut : mux4b" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /tb File: C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd
+add wave *
+run 3000 ns
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/mux_pkg.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:47:27 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/mux_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package mux_pkg
+# -- Compiling entity mux
+# -- Compiling architecture muxarch of mux
+# End time: 20:47:27 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:47:30 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package mux_pkg
+# -- Compiling entity muxnbit
+# -- Compiling architecture muxnbarch of muxnbit
+# End time: 20:47:30 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:47:32 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb
+# -- Compiling architecture tb_int_arc of tb
+# End time: 20:47:32 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+add wave *
+vsim work.tb
+# End time: 20:47:38 on Jun 01,2025, Elapsed time: 0:16:18
+# Errors: 0, Warnings: 1
+# vsim work.tb 
+# Start time: 20:47:38 on Jun 01,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(tb_int_arc)
+# ** Warning: (vsim-3473) Component instance "dut : mux4b" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /tb File: C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd
+add wave *
+run 3000 ns
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:50:12 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package mux_pkg
+# -- Compiling entity muxnbit
+# -- Compiling architecture muxnbarch of muxnbit
+# ** Error: C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd(43): Integer literal 1 is not of type ieee.std_logic_1164.STD_LOGIC.
+# ** Note: C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd(44): VHDL Compiler exiting
+# End time: 20:50:12 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/vcom failed.
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:50:22 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package mux_pkg
+# -- Compiling entity muxnbit
+# -- Compiling architecture muxnbarch of muxnbit
+# End time: 20:50:22 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb
+# End time: 20:50:25 on Jun 01,2025, Elapsed time: 0:02:47
+# Errors: 0, Warnings: 1
+# vsim work.tb 
+# Start time: 20:50:25 on Jun 01,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(tb_int_arc)
+# ** Warning: (vsim-3473) Component instance "dut : mux4b" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /tb File: C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd
+add wave *
+run 3000 ns
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:55:24 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package mux_pkg
+# -- Compiling entity muxnbit
+# -- Compiling architecture muxnbarch of muxnbit
+# End time: 20:55:24 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:55:31 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb
+# -- Compiling architecture tb_int_arc of tb
+# End time: 20:55:31 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb
+# End time: 20:55:34 on Jun 01,2025, Elapsed time: 0:05:09
+# Errors: 0, Warnings: 1
+# vsim work.tb 
+# Start time: 20:55:34 on Jun 01,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(tb_int_arc)
+# Loading work.mux_pkg
+# Loading work.muxnbit(muxnbarch)
+add wave *
+run 3000 ns
+# A time value could not be extracted from the current line
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:56:08 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package mux_pkg
+# -- Compiling entity muxnbit
+# -- Compiling architecture muxnbarch of muxnbit
+# End time: 20:56:08 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb
+# End time: 20:56:10 on Jun 01,2025, Elapsed time: 0:00:36
+# Errors: 0, Warnings: 0
+# vsim work.tb 
+# Start time: 20:56:10 on Jun 01,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(tb_int_arc)
+# Loading work.mux_pkg
+# Loading work.muxnbit(muxnbarch)
+# Loading work.mux(muxarch)
+add wave *
+run 3000 ns
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:05:59 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package mux_pkg
+# -- Compiling entity muxnbit
+# -- Compiling architecture muxnbarch of muxnbit
+# End time: 21:05:59 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb
+# End time: 21:06:02 on Jun 01,2025, Elapsed time: 0:09:52
+# Errors: 0, Warnings: 0
+# vsim work.tb 
+# Start time: 21:06:02 on Jun 01,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(tb_int_arc)
+# Loading work.mux_pkg
+# Loading work.muxnbit(muxnbarch)
+# Loading work.mux(muxarch)
+# ** Warning: (vsim-8683) Uninitialized out port /tb/dut/output has no driver.
+# This port will contribute value (U) to the signal network.
+add wave *
+run 3000 ns
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:09:31 on Jun 01,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package mux_pkg
+# -- Compiling entity muxnbit
+# -- Compiling architecture muxnbarch of muxnbit
+# End time: 22:09:31 on Jun 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb
+# End time: 22:09:33 on Jun 01,2025, Elapsed time: 1:03:31
+# Errors: 0, Warnings: 1
+# vsim work.tb 
+# Start time: 22:09:33 on Jun 01,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(tb_int_arc)
+# Loading work.mux_pkg
+# Loading work.muxnbit(muxnbarch)
+# Loading work.mux(muxarch)
+add wave *
+run 3000 ns
+# End time: 22:16:06 on Jun 01,2025, Elapsed time: 0:06:33
+# Errors: 0, Warnings: 0

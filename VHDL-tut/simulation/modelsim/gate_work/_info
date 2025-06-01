@@ -1,0 +1,228 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/simulation/modelsim
+Ehard_block
+Z1 w1748789979
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx11 fiftyfivenm 21 fiftyfivenm_atom_pack 0 22 OTUTkBjTeYVegmIWhVi3N0
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z7 DPx11 fiftyfivenm 22 fiftyfivenm_components 0 22 C5K^h=:j[4HI?HO^UkN3:2
+!i122 0
+R0
+Z8 8SoC-tut.vho
+Z9 FSoC-tut.vho
+l0
+L35 1
+VH73DDHU2ac^:D?]T;@N=M3
+!s100 3A]XnMhF<;9mKUe5mn3aM1
+Z10 OV;C;2020.1;71
+31
+Z11 !s110 1748790053
+!i10b 1
+Z12 !s108 1748790053.000000
+Z13 !s90 -reportprogress|300|-93|-work|work|SoC-tut.vho|
+Z14 !s107 SoC-tut.vho|
+!i113 1
+Z15 o-93 -work work
+Z16 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 10 hard_block 0 22 H73DDHU2ac^:D?]T;@N=M3
+!i122 0
+l76
+L54 28
+V:9n9ma92JRcO^oG6nb?k`2
+!s100 >:Wi^nX[YiN=@>>JC6K_83
+R10
+31
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Emux
+Z17 w1748788873
+R5
+R6
+!i122 4
+R0
+Z18 8C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/mux_pkg.vhd
+Z19 FC:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/mux_pkg.vhd
+l0
+L17 1
+VQoZBj?I[=KhJfdR>Se]I23
+!s100 1WK^e?If;j96[aaN8z1k_0
+R10
+32
+Z20 !s110 1748791047
+!i10b 1
+Z21 !s108 1748791047.000000
+Z22 !s90 -reportprogress|300|C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/mux_pkg.vhd|
+Z23 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/mux_pkg.vhd|
+!i113 1
+R16
+Amuxarch
+R5
+R6
+DEx4 work 3 mux 0 22 QoZBj?I[=KhJfdR>Se]I23
+!i122 4
+l24
+L23 4
+VY;GHM2KIE_OEk;IdckYYa0
+!s100 bXQZ]d:Mdl34=;RPEcNdb1
+R10
+32
+R20
+!i10b 1
+R21
+R22
+R23
+!i113 1
+R16
+Pmux_pkg
+R5
+R6
+!i122 4
+R17
+R0
+R18
+R19
+l0
+L5 1
+V3aILdOZ1QEc^dof6M^i9i2
+!s100 PZQ<:DJPEbVMm9me;n?1I2
+R10
+32
+R20
+!i10b 1
+R21
+R22
+R23
+!i113 1
+R16
+Emuxnbit
+Z24 w1748795944
+Z25 DPx4 work 7 mux_pkg 0 22 3aILdOZ1QEc^dof6M^i9i2
+R5
+R6
+!i122 13
+R0
+Z26 8C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd
+Z27 FC:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd
+l0
+L5 1
+V4@?hEh5];GDdgRHbb41;U2
+!s100 PdlbLafM2JKY2:i^PVV<j1
+R10
+32
+Z28 !s110 1748795971
+!i10b 1
+Z29 !s108 1748795971.000000
+Z30 !s90 -reportprogress|300|C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd|
+Z31 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/muxnbit.vhd|
+!i113 1
+R16
+Amuxnbarch
+R25
+R5
+R6
+Z32 DEx4 work 7 muxnbit 0 22 4@?hEh5];GDdgRHbb41;U2
+!i122 13
+l24
+L11 38
+VOFRc42b4APko>7e1OQVzk3
+!s100 2o;E`a@aSKn4d[_DXg]FR0
+R10
+32
+R28
+!i10b 1
+R29
+R30
+R31
+!i113 1
+R16
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 7 muxnbit 0 22 P0@Rm?CE^1^zAHga<IISC1
+!i122 0
+l177
+L121 557
+ViWK3mk>i4@YAXN=T5fM<k3
+!s100 ]Q^XQkiKPU]dO05[okkoj2
+R10
+31
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+R9
+R1
+R8
+Etb
+Z33 w1748791511
+Z34 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R5
+R6
+!i122 10
+R0
+Z35 8C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd
+Z36 FC:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd
+l0
+L4 1
+Vc4L;AQzc3@R<>?bZPR3cj3
+!s100 cF97flbV?VEW:fMa`Oz^z1
+R10
+32
+Z37 !s110 1748791531
+!i10b 1
+Z38 !s108 1748791531.000000
+Z39 !s90 -reportprogress|300|C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd|
+Z40 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/SoC-tut/tbtest.vhd|
+!i113 1
+R16
+Atb_int_arc
+R34
+R5
+R6
+DEx4 work 2 tb 0 22 c4L;AQzc3@R<>?bZPR3cj3
+!i122 10
+l16
+L7 47
+VK_8aP2SbcMU8GKg8QzM_U3
+!s100 n_=iO8g>fH95HjN1=gM[:2
+R10
+32
+R37
+!i10b 1
+R38
+R39
+R40
+!i113 1
+R16

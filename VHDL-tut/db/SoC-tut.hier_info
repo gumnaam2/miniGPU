@@ -1,0 +1,155 @@
+|muxnbit
+choice[0] => mux:input_layer:0:muxesinp.control
+choice[0] => mux:input_layer:1:muxesinp.control
+choice[0] => mux:input_layer:2:muxesinp.control
+choice[0] => mux:input_layer:3:muxesinp.control
+choice[0] => mux:input_layer:4:muxesinp.control
+choice[0] => mux:input_layer:5:muxesinp.control
+choice[0] => mux:input_layer:6:muxesinp.control
+choice[0] => mux:input_layer:7:muxesinp.control
+choice[1] => mux:layer_gen:1:mux_gen:0:mux_inst.control
+choice[1] => mux:layer_gen:1:mux_gen:1:mux_inst.control
+choice[1] => mux:layer_gen:1:mux_gen:2:mux_inst.control
+choice[1] => mux:layer_gen:1:mux_gen:3:mux_inst.control
+choice[2] => mux:layer_gen:2:mux_gen:0:mux_inst.control
+choice[2] => mux:layer_gen:2:mux_gen:1:mux_inst.control
+choice[3] => mux:layer_gen:3:mux_gen:0:mux_inst.control
+input[0] => mux:input_layer:0:muxesinp.x0
+input[1] => mux:input_layer:0:muxesinp.x1
+input[2] => mux:input_layer:1:muxesinp.x0
+input[3] => mux:input_layer:1:muxesinp.x1
+input[4] => mux:input_layer:2:muxesinp.x0
+input[5] => mux:input_layer:2:muxesinp.x1
+input[6] => mux:input_layer:3:muxesinp.x0
+input[7] => mux:input_layer:3:muxesinp.x1
+input[8] => mux:input_layer:4:muxesinp.x0
+input[9] => mux:input_layer:4:muxesinp.x1
+input[10] => mux:input_layer:5:muxesinp.x0
+input[11] => mux:input_layer:5:muxesinp.x1
+input[12] => mux:input_layer:6:muxesinp.x0
+input[13] => mux:input_layer:6:muxesinp.x1
+input[14] => mux:input_layer:7:muxesinp.x0
+input[15] => mux:input_layer:7:muxesinp.x1
+output << mux:layer_gen:3:mux_gen:0:mux_inst.selected
+
+
+|muxnbit|mux:\input_layer:0:muxesinp
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\input_layer:1:muxesinp
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\input_layer:2:muxesinp
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\input_layer:3:muxesinp
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\input_layer:4:muxesinp
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\input_layer:5:muxesinp
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\input_layer:6:muxesinp
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\input_layer:7:muxesinp
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\layer_gen:1:mux_gen:0:mux_inst
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\layer_gen:1:mux_gen:1:mux_inst
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\layer_gen:1:mux_gen:2:mux_inst
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\layer_gen:1:mux_gen:3:mux_inst
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\layer_gen:2:mux_gen:0:mux_inst
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\layer_gen:2:mux_gen:1:mux_inst
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|muxnbit|mux:\layer_gen:3:mux_gen:0:mux_inst
+x0 => selected.IN0
+x1 => selected.IN0
+control => selected.IN1
+control => selected.IN1
+selected <= selected.DB_MAX_OUTPUT_PORT_TYPE
+
+

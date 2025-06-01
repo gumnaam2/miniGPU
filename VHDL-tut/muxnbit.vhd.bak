@@ -1,0 +1,51 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity mux is
+	port (x0, x1: in std_logic;
+			control: in std_logic;
+			selected: out std_logic);
+end mux;
+
+architecture muxarch of mux is
+begin
+	selected <= (x0 and not control) or (x1 and control);
+end muxarch;
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity mux4b is
+	port (choice: in std_logic_vector(3 downto 0);
+			input: in std_logic_vector(15 downto 0);
+			output: out std_logic);
+end mux4b;
+
+architecture mux4barch of mux4b is
+	signal layer0: std_logic_vector(7 downto 0);
+	signal layer1: std_logic_vector(3 downto 0);
+	signal layer2: std_logic_vector(1 downto 0);
+	signal layer3: std_logic;
+	component mux
+		port (x0, x1: in std_logic;
+			control: in std_logic;
+			selected: out std_logic);
+	end component;
+
+begin
+--	layer_gen: for l in 0 to 3 generate
+--		mux_gen: for m in 0 to 2**(3 - l) - 1 generate
+--			mux_inst: mux port map(x0 => input(i), x1 => input(i+1), control => choice(0), selected => layer0(i));
+	muxes0: for i in 0 to 7 generate 
+				muxesl0: mux port map(x0 => input(i), x1 => input(i+1), control => choice(0), selected => layer0(i));
+		end generate;
+	muxes1:
+		for i in 0 to 3 generate
+			muxesl1: mux port map(x0 => layer0(i), x1 => layer0(i+1), control => choice(1), selected => layer1(i));
+		end generate;
+	muxes2:
+		for i in 0 to 1 generate
+			muxesl2: mux port map(x0 => layer1(i), x1 => layer1(i+1), control => choice(2), selected => layer2(i));
+		end generate;
+	muxl3: mux port map(x0 => layer2(0), x1 => layer2(1), control => choice(3), selected => output);
+end mux4barch;
