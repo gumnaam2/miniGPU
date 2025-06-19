@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity demux_nbit is
 	generic(
-		n: integer := 5
+		n: integer := 2
 	);
 	port (
 		x_in: in std_logic_vector(n-1 downto 0);

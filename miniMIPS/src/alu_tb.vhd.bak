@@ -1,0 +1,93 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity testbench is
+
+end entity;
+
+-- assuming operand 1 to be rs and operand 2 to be rt
+
+architecture behav of testbench is
+	signal clock,reset,enable: std_logic := '0';
+	signal operand_1,operand_2,alu_out: std_logic_vector(7 downto 0);
+	signal alu_select: std_logic_vector(1 downto 0);
+	signal core_state,alu_nzp: std_logic_vector(2 downto 0);
+	signal correct_behavior: std_logic;
+	
+	component alu is
+	port(clock:in std_logic; reset:in std_logic; enable:in std_logic; operand_1:in std_logic_vector(7 downto 0),
+	operand_2:in std_logic_vector (7 downto 0);alu_select:in std_logic_vector (1 downto 0)
+	;core_state:in std_logic_vector(2 downto 0);alu_out: out std_logic_vector(7 downto 0);
+ 	alu_nzp: out std_logic_vector(2 downto 0));
+	end component;	
+	
+	begin
+	core_state <= "000";
+	
+	inst1: alu port map(clock=>clock,reset=>reset,enable=>enable,operand_1=>operand_1,operand_2=>operand_2,alu_select=>alu_select,
+								core_state=>core_state,alu_nzp=>alu_nzp,alu_out=>alu_out);
+	
+	clock_proc: process
+	begin
+		clock <= '1';
+		wait for 10 ns;
+		clock <= '0';
+		wait for 10 ns;
+	end process;
+	
+	test_proc: process
+	begin
+		wait for 100 ns;
+		reset <= '1';
+		wait for 20 ns;
+		if (alu_nzp == "000" and alu_out == "00000000") then
+			correct_behavior <= '1';
+		else 
+			correct_behavior <= '0';
+		end if;
+		wait for 10 ns;
+		reset <= '0';
+		operand_1 <= "00011001";
+		operand_2 <= "00001011";
+		alu_select <= "00";
+		wait for 30 ns;
+		enable <= '1';
+		core_state <= "101";
+		operand_1 <= "00011001";
+		operand_2 <= "00001011";
+		alu_select <= "00";
+		wait for 20 ns;
+		if(alu_out == "00100100" and alu_nzp == "100") then
+			correct_behavior <= '1';
+		else 
+			correct_behavior <= '0';
+		end if;
+		alu_select <= "01";
+		wait for 20 ns;
+		if(alu_out == "00001110" and alu_nzp == "100") then
+			correct_behavior <= '1';
+		else 
+			correct_behavior <= '0';
+		end if;
+		operand_1 <= "00000101";
+		operand_2 <= "00001011";
+		alu_select <= "10";
+		wait for 20 ns;
+		if(alu_out == "00110111" and alu_nzp == "001") then
+			correct_behavior <= '1';
+		else 
+			correct_behavior <= '0';
+		end if;
+		operand_1 <= "00001011";
+		operand_2 <= "00000101";
+		alu_select <= "11";
+		wait for 20 ns;
+		if(alu_out == "00000010" and alu_nzp == "100") then
+			correct_behavior <= '1';
+		else 
+			correct_behavior <= '0';
+		end if;
+		wait for 40 ns;
+	end process;
+	
+end architecture;

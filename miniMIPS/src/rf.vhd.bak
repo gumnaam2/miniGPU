@@ -1,0 +1,35 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity rf is
+	port (
+      clock           : in std_logic;
+      reset           : in std_logic;
+      enable          : in std_logic;
+      core_state      : in std_logic_vector(2 downto 0);
+      reg_write_enable: in std_logic;
+      alu_out         : in std_logic_vector(7 downto 0);
+      lsu_out         : in std_logic_vector(7 downto 0);
+      immediate       : in std_logic_vector(7 downto 0);
+      reg_input_mux   : in std_logic_vector(1 downto 0);
+      rs_address      : in std_logic_vector(3 downto 0);
+      rt_address      : in std_logic_vector(3 downto 0);
+      rd_address      : in std_logic_vector(3 downto 0);
+      block_id        : in std_logic_vector(7 downto 0);
+      rs_data         : out std_logic_vector(7 downto 0);
+      rt_data         : out std_logic_vector(7 downto 0)
+    );
+end rf;
+
+architecture synth of rf is
+	component reg_1b is port (
+		d: in std_logic;
+		e: in std_logic;
+		clk: in std_logic;
+		q: out std_logic
+	);
+begin
+	rf_process: process(clock) begin
+		if enable = '1' then
+			
+		
