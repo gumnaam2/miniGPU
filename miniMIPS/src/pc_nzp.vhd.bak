@@ -1,0 +1,12 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity pc_nzp is port(
+		clock, reset, enable, nzp_write_enable: 	in std_logic;
+		pc_out_mux: 										in std_logic; --high if branch instruction, otherwise PC incremented normally
+		core_state: 										in std_logic_vector(2 downto 0);
+		nzp_instr, nzp_out: 								in std_logic_vector(2 downto 0); --for the branch condition, these are compared
+		current_pc, immediate: 							in std_logic_vector(7 downto 0) --current PC value, and the immediate PC to jump to if any
+	);
+
+end pc_nzp;

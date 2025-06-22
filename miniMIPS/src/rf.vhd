@@ -116,29 +116,29 @@ begin
 				registers(15) <= (others => '0');
 				rs_data <= (others => '0');
 				rt_data <= (others => '0');
-				-- Enable logic
+
 				elsif enable = '1' then
-				if reg_write_enable = '1' then --write
-				  registers(13) <= block_id;			  
-				  if core_state = "011" then --write
-						rs_data <= registers(to_integer(unsigned(rs_address)));
-						rt_data <= registers(to_integer(unsigned(rt_address)));
-				  end if;
-				  if core_state = "110" then --write
-						if to_integer(unsigned(rd_address)) < 13 then
-							 case reg_input_mux is
-								when "00" =>
-										registers(to_integer(unsigned(rd_address))) <= alu_out;
-								when "01" =>
-									registers(to_integer(unsigned(rd_address))) <= lsu_out;
-								when "10" =>
-									registers(to_integer(unsigned(rd_address))) <= immediate;
-								when others =>
-									null;
-							 end case;
-						end if;
-				  end if;
-				end if;
+					if reg_write_enable = '1' then --write
+					  registers(13) <= block_id;			  
+					  if core_state = "011" then --write
+							rs_data <= registers(to_integer(unsigned(rs_address)));
+							rt_data <= registers(to_integer(unsigned(rt_address)));
+					  end if;
+					  if core_state = "110" then --write
+							if to_integer(unsigned(rd_address)) < 13 then
+								 case reg_input_mux is
+									when "00" =>
+											registers(to_integer(unsigned(rd_address))) <= alu_out;
+									when "01" =>
+										registers(to_integer(unsigned(rd_address))) <= lsu_out;
+									when "10" =>
+										registers(to_integer(unsigned(rd_address))) <= immediate;
+									when others =>
+										null;
+								 end case;
+							end if;
+					  end if;
+					end if;
 			end if;
 		end if;
 	end process;
