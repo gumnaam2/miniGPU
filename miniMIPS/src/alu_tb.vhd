@@ -87,7 +87,7 @@ architecture behav of alu_testbench is
 		else 
 			correct_behavior <= '0';
 		end if;
-		wait for 40 ns;
+		wait;
 	end process;
 	
 end architecture;

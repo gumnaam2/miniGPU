@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity thread_struct is
+port(
+	clock																		:in std_logic;
+	alu_select																:in std_logic_vector(1 downto 0);
+	rs_address, rt_address, rd_address								:in std_logic_vector(3 downto 0);
+	immediate, current_pc												:in std_logic_vector(7 downto 0);
+	nzp_write_en, mem_write_en, mem_read_en, reg_write_en		:in std_logic;
+	nzp_instr																:in std_logic_vector(2 downto 0);
+	reg_input_mux															:in std_logic_vector(1 downto 0)
+);
+end thread_struct;
+
+architecture behavioural of thread_struct is
+	
+begin
+
+end behavioural;
+	

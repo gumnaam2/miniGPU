@@ -1,0 +1,604 @@
+Analysis & Synthesis report for miniMIPS
+Fri Jun 27 23:24:46 2025
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: pc_nzp:pc_nzp_block|addernbit:pc_incrementer
+ 12. Parameter Settings for Inferred Entity Instance: alu:alu_block|lpm_mult:Mult0
+ 13. Parameter Settings for Inferred Entity Instance: alu:alu_block|lpm_divide:Div0
+ 14. lpm_mult Parameter Settings by Entity Instance
+ 15. Port Connectivity Checks: "lsu:lsu_block"
+ 16. Port Connectivity Checks: "pc_nzp:pc_nzp_block|addernbit:pc_incrementer|fulladder:\additions:7:adders"
+ 17. Port Connectivity Checks: "pc_nzp:pc_nzp_block|addernbit:pc_incrementer|fulladder:\additions:0:adders"
+ 18. Port Connectivity Checks: "pc_nzp:pc_nzp_block|addernbit:pc_incrementer"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Jun 27 23:24:46 2025       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; miniMIPS                                    ;
+; Top-level Entity Name              ; thread_struct                               ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 532                                         ;
+;     Total combinational functions  ; 413                                         ;
+;     Dedicated logic registers      ; 200                                         ;
+; Total registers                    ; 200                                         ;
+; Total pins                         ; 96                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 1                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M08DAF484C8G     ;                    ;
+; Top-level entity name                                            ; thread_struct      ; miniMIPS           ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 22          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                           ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
+; src/rf.vhd                       ; yes             ; User VHDL File               ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf.vhd                 ;         ;
+; src/alu.vhd                      ; yes             ; User VHDL File               ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd                ;         ;
+; src/pc_nzp.vhd                   ; yes             ; User VHDL File               ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/pc_nzp.vhd             ;         ;
+; src/addernbit.vhd                ; yes             ; User VHDL File               ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/addernbit.vhd          ;         ;
+; src/lsu.vhd                      ; yes             ; User VHDL File               ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/lsu.vhd                ;         ;
+; thread_struct.vhd                ; yes             ; User VHDL File               ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/thread_struct.vhd          ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf                    ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                  ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.inc                 ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.inc                    ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/bypassff.inc                    ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.inc                    ;         ;
+; db/mult_0ls.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/mult_0ls.tdf            ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf                  ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc                 ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc             ;         ;
+; db/lpm_divide_dsl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/lpm_divide_dsl.tdf      ;         ;
+; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/sign_div_unsign_fkh.tdf ;         ;
+; db/alt_u_div_8fe.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/alt_u_div_8fe.tdf       ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/add_sub_t3c.tdf         ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/add_sub_u3c.tdf         ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 532         ;
+;                                             ;             ;
+; Total combinational functions               ; 413         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 263         ;
+;     -- 3 input functions                    ; 109         ;
+;     -- <=2 input functions                  ; 41          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 358         ;
+;     -- arithmetic mode                      ; 55          ;
+;                                             ;             ;
+; Total registers                             ; 200         ;
+;     -- Dedicated logic registers            ; 200         ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 96          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 1           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 214         ;
+; Total fan-out                               ; 2593        ;
+; Average fan-out                             ; 3.21        ;
++---------------------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                          ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |thread_struct                            ; 413 (0)             ; 200 (0)                   ; 0           ; 0          ; 1            ; 1       ; 0         ; 96   ; 0            ; 0          ; |thread_struct                                                                                                               ; thread_struct       ; work         ;
+;    |alu:alu_block|                        ; 130 (57)            ; 11 (11)                   ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|alu:alu_block                                                                                                 ; alu                 ; work         ;
+;       |lpm_divide:Div0|                   ; 73 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|alu:alu_block|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_dsl:auto_generated|  ; 73 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|alu:alu_block|lpm_divide:Div0|lpm_divide_dsl:auto_generated                                                   ; lpm_divide_dsl      ; work         ;
+;             |sign_div_unsign_fkh:divider| ; 73 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|alu:alu_block|lpm_divide:Div0|lpm_divide_dsl:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_8fe:divider|    ; 73 (73)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|alu:alu_block|lpm_divide:Div0|lpm_divide_dsl:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_8fe:divider ; alt_u_div_8fe       ; work         ;
+;       |lpm_mult:Mult0|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|alu:alu_block|lpm_mult:Mult0                                                                                  ; lpm_mult            ; work         ;
+;          |mult_0ls:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|alu:alu_block|lpm_mult:Mult0|mult_0ls:auto_generated                                                          ; mult_0ls            ; work         ;
+;    |lsu:lsu_block|                        ; 37 (37)             ; 34 (34)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|lsu:lsu_block                                                                                                 ; lsu                 ; work         ;
+;    |pc_nzp:pc_nzp_block|                  ; 22 (16)             ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|pc_nzp:pc_nzp_block                                                                                           ; pc_nzp              ; work         ;
+;       |addernbit:pc_incrementer|          ; 6 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|pc_nzp:pc_nzp_block|addernbit:pc_incrementer                                                                  ; addernbit           ; work         ;
+;          |fulladder:\additions:2:adders|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|pc_nzp:pc_nzp_block|addernbit:pc_incrementer|fulladder:\additions:2:adders                                    ; fulladder           ; work         ;
+;          |fulladder:\additions:3:adders|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|pc_nzp:pc_nzp_block|addernbit:pc_incrementer|fulladder:\additions:3:adders                                    ; fulladder           ; work         ;
+;          |fulladder:\additions:4:adders|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|pc_nzp:pc_nzp_block|addernbit:pc_incrementer|fulladder:\additions:4:adders                                    ; fulladder           ; work         ;
+;          |fulladder:\additions:5:adders|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|pc_nzp:pc_nzp_block|addernbit:pc_incrementer|fulladder:\additions:5:adders                                    ; fulladder           ; work         ;
+;          |fulladder:\additions:6:adders|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|pc_nzp:pc_nzp_block|addernbit:pc_incrementer|fulladder:\additions:6:adders                                    ; fulladder           ; work         ;
+;    |rf:rf_block|                          ; 224 (224)           ; 144 (144)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |thread_struct|rf:rf_block                                                                                                   ; rf                  ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 1           ;
+; Simple Multipliers (18-bit)           ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 1           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 200   ;
+; Number of registers using Synchronous Clear  ; 162   ;
+; Number of registers using Synchronous Load   ; 120   ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 198   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |thread_struct|lsu:lsu_block|mem_read_addr[0]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |thread_struct|lsu:lsu_block|mem_write_addr[0] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |thread_struct|pc_nzp:pc_nzp_block|nzp[2]      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |thread_struct|alu:alu_block|alu_nzp[2]        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |thread_struct|lsu:lsu_block|lsu_out[2]        ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |thread_struct|pc_nzp:pc_nzp_block|new_pc[7]   ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |thread_struct|alu:alu_block|alu_out[2]        ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[15][6]    ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[14][6]    ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[12][6]    ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[11][2]    ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[10][5]    ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[9][5]     ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[8][5]     ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[7][1]     ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[6][3]     ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[5][7]     ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[4][4]     ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[3][4]     ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[2][4]     ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[1][5]     ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[0][2]     ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |thread_struct|rf:rf_block|registers[13][4]    ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 6 LEs                ; 10 LEs                 ; Yes        ; |thread_struct|lsu:lsu_block|lsu_state[0]      ;
+; 18:1               ; 8 bits    ; 96 LEs        ; 88 LEs               ; 8 LEs                  ; Yes        ; |thread_struct|rf:rf_block|rs_data[7]          ;
+; 18:1               ; 8 bits    ; 96 LEs        ; 88 LEs               ; 8 LEs                  ; Yes        ; |thread_struct|rf:rf_block|rt_data[2]          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pc_nzp:pc_nzp_block|addernbit:pc_incrementer ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: alu:alu_block|lpm_mult:Mult0   ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8        ; Untyped             ;
+; LPM_WIDTHB                                     ; 8        ; Untyped             ;
+; LPM_WIDTHP                                     ; 16       ; Untyped             ;
+; LPM_WIDTHR                                     ; 16       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_0ls ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: alu:alu_block|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------+
+; Parameter Name         ; Value          ; Type                                 ;
++------------------------+----------------+--------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                              ;
+; LPM_WIDTHD             ; 8              ; Untyped                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                              ;
+; CBXI_PARAMETER         ; lpm_divide_dsl ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                       ;
++------------------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                       ;
++---------------------------------------+------------------------------+
+; Name                                  ; Value                        ;
++---------------------------------------+------------------------------+
+; Number of entity instances            ; 1                            ;
+; Entity Instance                       ; alu:alu_block|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                            ;
+;     -- LPM_WIDTHB                     ; 8                            ;
+;     -- LPM_WIDTHP                     ; 16                           ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                           ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                           ;
+;     -- USE_EAB                        ; OFF                          ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                         ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                           ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                           ;
++---------------------------------------+------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "lsu:lsu_block"                                                                               ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; out_lsu_state ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pc_nzp:pc_nzp_block|addernbit:pc_incrementer|fulladder:\additions:7:adders"         ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pc_nzp:pc_nzp_block|addernbit:pc_incrementer|fulladder:\additions:0:adders" ;
++------+-------+----------+------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                      ;
++------+-------+----------+------------------------------------------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                                                                 ;
++------+-------+----------+------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "pc_nzp:pc_nzp_block|addernbit:pc_incrementer" ;
++---------+-------+----------+---------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                     ;
++---------+-------+----------+---------------------------------------------+
+; y[7..1] ; Input ; Info     ; Stuck at GND                                ;
+; y[0]    ; Input ; Info     ; Stuck at VCC                                ;
++---------+-------+----------+---------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 96                          ;
+; cycloneiii_ff         ; 200                         ;
+;     ENA               ; 35                          ;
+;     ENA SCLR          ; 43                          ;
+;     ENA SCLR SLD      ; 119                         ;
+;     ENA SLD           ; 1                           ;
+;     plain             ; 2                           ;
+; cycloneiii_lcell_comb ; 413                         ;
+;     arith             ; 55                          ;
+;         3 data inputs ; 55                          ;
+;     normal            ; 358                         ;
+;         0 data inputs ; 6                           ;
+;         2 data inputs ; 35                          ;
+;         3 data inputs ; 54                          ;
+;         4 data inputs ; 263                         ;
+; cycloneiii_mac_mult   ; 1                           ;
+; cycloneiii_mac_out    ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 16.70                       ;
+; Average LUT depth     ; 4.74                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Jun 27 23:24:30 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off miniMIPS -c miniMIPS
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 4 design units, including 2 entities, in source file src/reg_1b.vhd
+    Info (12022): Found design unit 1: reg_1b-reg_arch File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/reg_1b.vhd Line: 12
+    Info (12022): Found design unit 2: sim_reg-sim_reg_arch File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/reg_1b.vhd Line: 32
+    Info (12023): Found entity 1: reg_1b File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/reg_1b.vhd Line: 4
+    Info (12023): Found entity 2: sim_reg File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/reg_1b.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file src/mem_unit.vhd
+    Info (12022): Found design unit 1: mem_unit-structural File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/mem_unit.vhd Line: 20
+    Info (12023): Found entity 1: mem_unit File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/mem_unit.vhd Line: 6
+Warning (12090): Entity "mux" obtained from "src/muxnbit.vhd" instead of from Quartus Prime megafunction library File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/muxnbit.vhd Line: 5
+Info (12021): Found 4 design units, including 2 entities, in source file src/muxnbit.vhd
+    Info (12022): Found design unit 1: mux-muxarch File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/muxnbit.vhd Line: 11
+    Info (12022): Found design unit 2: muxnbit-muxnbarch File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/muxnbit.vhd Line: 31
+    Info (12023): Found entity 1: mux File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/muxnbit.vhd Line: 5
+    Info (12023): Found entity 2: muxnbit File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/muxnbit.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file src/decoder_nbit.vhd
+    Info (12022): Found design unit 1: decoder_nbit-dec_nbit_arch File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/decoder_nbit.vhd Line: 13
+    Info (12023): Found entity 1: decoder_nbit File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/decoder_nbit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file src/demux_nbit.vhd
+    Info (12022): Found design unit 1: demux_nbit-structural File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/demux_nbit.vhd Line: 15
+    Info (12023): Found entity 1: demux_nbit File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/demux_nbit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file src/rf_tb.vhd
+    Info (12022): Found design unit 1: testbench-struct File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf_tb.vhd Line: 8
+    Info (12023): Found entity 1: testbench File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf_tb.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file src/rf.vhd
+    Info (12022): Found design unit 1: rf-behavioural File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf.vhd Line: 25
+    Info (12023): Found entity 1: rf File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file src/alu_tb.vhd
+    Info (12022): Found design unit 1: alu_testbench-behav File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu_tb.vhd Line: 10
+    Info (12023): Found entity 1: alu_testbench File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu_tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file src/alu.vhd
+    Info (12022): Found design unit 1: alu-behavioural File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd Line: 19
+    Info (12023): Found entity 1: alu File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file src/pc_nzp.vhd
+    Info (12022): Found design unit 1: pc_nzp-behavioural File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/pc_nzp.vhd Line: 16
+    Info (12023): Found entity 1: pc_nzp File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/pc_nzp.vhd Line: 4
+Info (12021): Found 4 design units, including 2 entities, in source file src/addernbit.vhd
+    Info (12022): Found design unit 1: fulladder-adder_arch File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/addernbit.vhd Line: 9
+    Info (12022): Found design unit 2: addernbit-structural File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/addernbit.vhd Line: 28
+    Info (12023): Found entity 1: fulladder File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/addernbit.vhd Line: 4
+    Info (12023): Found entity 2: addernbit File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/addernbit.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file src/lsu.vhd
+    Info (12022): Found design unit 1: lsu-behavioural File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/lsu.vhd Line: 20
+    Info (12023): Found entity 1: lsu File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/lsu.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file thread_struct.vhd
+    Info (12022): Found design unit 1: thread_struct-connections File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/thread_struct.vhd Line: 26
+    Info (12023): Found entity 1: thread_struct File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/thread_struct.vhd Line: 4
+Info (12127): Elaborating entity "thread_struct" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at thread_struct.vhd(84): object "out_lsu_state_wire" assigned a value but never read File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/thread_struct.vhd Line: 84
+Info (12128): Elaborating entity "rf" for hierarchy "rf:rf_block" File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/thread_struct.vhd Line: 87
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu_block" File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/thread_struct.vhd Line: 105
+Info (12128): Elaborating entity "pc_nzp" for hierarchy "pc_nzp:pc_nzp_block" File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/thread_struct.vhd Line: 116
+Info (12128): Elaborating entity "addernbit" for hierarchy "pc_nzp:pc_nzp_block|addernbit:pc_incrementer" File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/pc_nzp.vhd Line: 30
+Info (12128): Elaborating entity "fulladder" for hierarchy "pc_nzp:pc_nzp_block|addernbit:pc_incrementer|fulladder:\additions:0:adders" File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/addernbit.vhd Line: 39
+Info (12128): Elaborating entity "lsu" for hierarchy "lsu:lsu_block" File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/thread_struct.vhd Line: 129
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "alu:alu_block|Mult0" File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd Line: 54
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "alu:alu_block|Div0" File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd Line: 56
+Info (12130): Elaborated megafunction instantiation "alu:alu_block|lpm_mult:Mult0" File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd Line: 54
+Info (12133): Instantiated megafunction "alu:alu_block|lpm_mult:Mult0" with the following parameter: File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd Line: 54
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "8"
+    Info (12134): Parameter "LPM_WIDTHP" = "16"
+    Info (12134): Parameter "LPM_WIDTHR" = "16"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_0ls.tdf
+    Info (12023): Found entity 1: mult_0ls File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/mult_0ls.tdf Line: 29
+Info (12130): Elaborated megafunction instantiation "alu:alu_block|lpm_divide:Div0" File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd Line: 56
+Info (12133): Instantiated megafunction "alu:alu_block|lpm_divide:Div0" with the following parameter: File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd Line: 56
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_dsl.tdf
+    Info (12023): Found entity 1: lpm_divide_dsl File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/lpm_divide_dsl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_fkh File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/sign_div_unsign_fkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_8fe.tdf
+    Info (12023): Found entity 1: alt_u_div_8fe File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/alt_u_div_8fe.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/db/add_sub_u3c.tdf Line: 23
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 645 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 64 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 548 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4865 megabytes
+    Info: Processing ended: Fri Jun 27 23:24:46 2025
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:15
+
+

@@ -1,0 +1,13 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/reg_1b.vhd}
+vcom -93 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/mem_unit.vhd}
+vcom -93 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/muxnbit.vhd}
+vcom -93 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/decoder_nbit.vhd}
+vcom -93 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/demux_nbit.vhd}
+

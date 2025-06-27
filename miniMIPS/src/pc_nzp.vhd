@@ -2,13 +2,13 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity pc_nzp is port(
-		clock, reset, enable, nzp_write_enable: 	in std_logic;
-		pc_out_mux: 										in std_logic; --high if branch instruction, otherwise PC incremented normally
-		core_state: 										in std_logic_vector(2 downto 0);--modify PC iff =101 else modify NZP register
-		nzp_instr, nzp_out: 								in std_logic_vector(2 downto 0); --for the branch condition, these are compared
-		current_pc, immediate: 							in std_logic_vector(7 downto 0); --current PC value, and the immediate PC to jump to if any
+		clock, reset, enable, nzp_write_enable 	:in std_logic;
+		pc_out_mux	 										:in std_logic; --high if branch instruction, otherwise PC incremented normally
+		core_state 											:in std_logic_vector(2 downto 0);--modify PC iff =101 else modify NZP register
+		nzp_instr, nzp_out 								:in std_logic_vector(2 downto 0); --for the branch condition, these are compared
+		current_pc, immediate 							:in std_logic_vector(7 downto 0); --current PC value, and the immediate PC to jump to if any
 		
-		new_pc: 												out std_logic_vector(7 downto 0)
+		new_pc 												:out std_logic_vector(7 downto 0)
 	);
 
 end pc_nzp;
@@ -40,7 +40,7 @@ begin
 					end if;
 				elsif core_state = "101" then
 					if pc_out_mux = '1' then
-						if nzp_out = nzp_instr then
+						if nzp = nzp_instr then
 							new_pc <= immediate;
 						else
 							new_pc <= pc_plus1;

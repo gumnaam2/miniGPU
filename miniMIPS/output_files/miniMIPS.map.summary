@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Fri Jun 27 23:24:46 2025
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : miniMIPS
+Top-level Entity Name : thread_struct
+Family : MAX 10
+Total logic elements : 532
+    Total combinational functions : 413
+    Dedicated logic registers : 200
+Total registers : 200
+Total pins : 96
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 1
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

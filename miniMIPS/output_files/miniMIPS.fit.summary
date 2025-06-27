@@ -1,0 +1,18 @@
+Fitter Status : Successful - Fri Jun 27 23:24:57 2025
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : miniMIPS
+Top-level Entity Name : thread_struct
+Family : MAX 10
+Device : 10M08DAF484C8G
+Timing Models : Final
+Total logic elements : 550 / 8,064 ( 7 % )
+    Total combinational functions : 430 / 8,064 ( 5 % )
+    Dedicated logic registers : 200 / 8,064 ( 2 % )
+Total registers : 200
+Total pins : 96 / 250 ( 38 % )
+Total virtual pins : 0
+Total memory bits : 0 / 387,072 ( 0 % )
+Embedded Multiplier 9-bit elements : 1 / 48 ( 2 % )
+Total PLLs : 0 / 2 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )

@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Wed Jun 04 22:51:52 2025
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : vhdltut
+Top-level Entity Name : decoder_nbit
+Family : MAX 10
+Total logic elements : 16
+    Total combinational functions : 16
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 20
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

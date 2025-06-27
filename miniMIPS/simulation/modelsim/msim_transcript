@@ -1,0 +1,306 @@
+# Reading pref.tcl
+# do miniMIPS_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:44:47 on Jun 27,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rf
+# -- Compiling architecture behavioural of rf
+# End time: 22:44:47 on Jun 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:46:25 on Jun 27,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rf
+# -- Compiling architecture behavioural of rf
+# End time: 22:46:25 on Jun 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf_tb.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:46:28 on Jun 27,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/rf_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench
+# -- Compiling architecture struct of testbench
+# End time: 22:46:28 on Jun 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb
+# vsim work.tb 
+# Start time: 22:46:33 on Jun 27,2025
+# ** Error: (vsim-3170) Could not find 'tb'.
+#         Searched libraries:
+#             C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/simulation/modelsim/rtl_work
+# Error loading design
+# End time: 22:46:33 on Jun 27,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vsim work.testbench
+# vsim work.testbench 
+# Start time: 22:46:56 on Jun 27,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.testbench(struct)
+# Loading work.rf(behavioural)
+wave add *
+# No help for wave addcursor available.
+add wave *
+run 220ns
+# ** Note: Test 1: Reset behavior passed
+#    Time: 40 ns  Iteration: 0  Instance: /testbench
+# ** Note: Test 2: BlockID write to register[13] passed
+#    Time: 80 ns  Iteration: 0  Instance: /testbench
+# ** Note: Test 3: ALU write to register[5] passed
+#    Time: 120 ns  Iteration: 0  Instance: /testbench
+# ** Note: Test 4: LSU write to register[6] passed
+#    Time: 160 ns  Iteration: 0  Instance: /testbench
+# ** Note: Test 5: Immediate write to register[7] passed
+#    Time: 200 ns  Iteration: 0  Instance: /testbench
+# ** Note: All tests completed
+#    Time: 220 ns  Iteration: 0  Instance: /testbench
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:55:29 on Jun 27,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity alu
+# -- Compiling architecture behavioural of alu
+# End time: 22:55:29 on Jun 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu_tb.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:55:32 on Jun 27,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity alu_testbench
+# -- Compiling architecture behav of alu_testbench
+# End time: 22:55:32 on Jun 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.alu_testbench
+# End time: 22:55:38 on Jun 27,2025, Elapsed time: 0:08:42
+# Errors: 0, Warnings: 0
+# vsim work.alu_testbench 
+# Start time: 22:55:38 on Jun 27,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.alu_testbench(behav)
+# Loading ieee.numeric_std(body)
+# Loading work.alu(behavioural)
+add wave *
+run 250 ns
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 60 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 60 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 120 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 120 ns  Iteration: 1  Instance: /alu_testbench/inst1
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+run 250 ns
+add wave *
+add wave *
+add wave *
+vsim work.alu_testbench
+# End time: 23:02:48 on Jun 27,2025, Elapsed time: 0:07:10
+# Errors: 0, Warnings: 14
+# vsim work.alu_testbench 
+# Start time: 23:02:48 on Jun 27,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.alu_testbench(behav)
+# Loading ieee.numeric_std(body)
+# Loading work.alu(behavioural)
+add wave *
+run 1000 ns
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 60 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 60 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 120 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 120 ns  Iteration: 1  Instance: /alu_testbench/inst1
+run 1000 ns
+run 1000 ns
+run 1000 ns
+vcom "C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu_tb.vhd"
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:18:53 on Jun 27,2025
+# vcom -reportprogress 300 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniMIPS/src/alu_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity alu_testbench
+# -- Compiling architecture behav of alu_testbench
+# End time: 23:18:53 on Jun 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.alu_testbench
+# End time: 23:18:55 on Jun 27,2025, Elapsed time: 0:16:07
+# Errors: 0, Warnings: 14
+# vsim work.alu_testbench 
+# Start time: 23:18:55 on Jun 27,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.alu_testbench(behav)
+# Loading ieee.numeric_std(body)
+# Loading work.alu(behavioural)
+add wave *
+run 1000 ns
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 60 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 60 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 120 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 120 ns  Iteration: 1  Instance: /alu_testbench/inst1
+vsim work.alu_testbench
+# End time: 23:19:23 on Jun 27,2025, Elapsed time: 0:00:28
+# Errors: 0, Warnings: 14
+# vsim work.alu_testbench 
+# Start time: 23:19:23 on Jun 27,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.alu_testbench(behav)
+# Loading ieee.numeric_std(body)
+# Loading work.alu(behavioural)
+add wave *
+run 300 ns
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 60 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 60 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 120 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 120 ns  Iteration: 1  Instance: /alu_testbench/inst1
+# End time: 23:27:48 on Jun 27,2025, Elapsed time: 0:08:25
+# Errors: 0, Warnings: 14
