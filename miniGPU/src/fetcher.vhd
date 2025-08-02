@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity fetcher is port(
 	clock, reset, mem_read_ready	: in std_logic;
-	core_state			: in std_logic_vector(1 downto 0);
+	core_state			: in std_logic_vector(2 downto 0);
 	current_pc			: in std_logic_vector(7 downto 0);
 	mem_read_data		: in std_logic_vector(15 downto 0);
 	
