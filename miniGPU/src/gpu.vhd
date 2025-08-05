@@ -202,7 +202,7 @@ port map (
 
 cores : for i in 0 to n_cores - 1 generate
 nth_core: core port map (
-	clock => clock, reset => ext_reset,
+	clock => clock, reset => core_reset(i),
 	start => core_start(i),
 	enable => core_enable,
 	fetcher_mem_read_ready => fetcher_mem_read_ready_arr(i),
