@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity pc_nzp is port(
 		clock, reset, enable, nzp_write_enable 	:in std_logic;
@@ -15,19 +16,19 @@ end pc_nzp;
 
 architecture behavioural of pc_nzp is 
 	signal nzp : std_logic_vector(2 downto 0);
-	component addernbit is
-		generic(
-			n: integer := 8
-		);
-		port (x: in std_logic_vector(n-1 downto 0);
-				y: in std_logic_vector(n-1 downto 0);
-				s: out std_logic_vector(n-1 downto 0) --cout: out std_logic
-				);
-	end component;
-	signal pc_plus1: std_logic_vector(7 downto 0);
+--	component addernbit is
+--		generic(
+--			n: integer := 8
+--		);
+--		port (x: in std_logic_vector(n-1 downto 0);
+--				y: in std_logic_vector(n-1 downto 0);
+--				s: out std_logic_vector(n-1 downto 0) --cout: out std_logic
+--				);
+--	end component;
+--	signal pc_plus1: std_logic_vector(7 downto 0);
 	
 begin
-	pc_incrementer: addernbit port map(x => current_pc, y => "00000001", s => pc_plus1);
+--	pc_incrementer: addernbit port map(x => current_pc, y => "00000001", s => pc_plus1);
 	
 	process(clock) begin
 		if rising_edge(clock) then
@@ -43,10 +44,10 @@ begin
 						if nzp = nzp_instr then
 							new_pc <= immediate;
 						else
-							new_pc <= pc_plus1;
+							new_pc <= current_pc;
 						end if;
 					else
-						new_pc <= pc_plus1;
+						new_pc <= std_logic_vector(unsigned(current_pc) + 1);
 					end if;
 				end if;
 			end if;

@@ -7,6 +7,8 @@ entity dispatcher is
 port(
 	clock, reset, start : in std_logic;
 	core_done : in std_logic_vector(n_cores-1 downto 0); --DONE from each core
+	thread_count : in std_logic_vector(7 downto 0); --total num of threads to be processed
+	--e.g. if the operation is to add 2 length-10 vectors, should require 10 threads
 	
 	core_start, core_reset : buffer std_logic_vector(n_cores - 1 downto 0);
 	core_block_id : out std_logic_vector(n_cores*8 - 1 downto 0);
@@ -17,7 +19,7 @@ end dispatcher;
 
 architecture arch of dispatcher is
 	signal done, start_execution : std_logic;
-	signal blocks_dispatched, blocks_done : integer;
+	signal blocks_dispatched, blocks_done : integer := 0;
 	constant total_blocks : integer := 2;
 begin
 process(clock) begin
@@ -40,14 +42,14 @@ process(clock) begin
 			if blocks_done = total_blocks then
 				done <= '1';
 			end if;
-			for j in 0 to n_cores - 1 loop
-				if core_reset(j) = '1' then
-					core_reset(j) <= '0';
-					if blocks_dispatched < total_blocks then
+			for j in 0 to n_cores - 1 loop --checking each core
+				if core_reset(j) = '1' then --once the core is reset
+					core_reset(j) <= '0'; --can start operations on core
+					if blocks_dispatched < total_blocks then --not all blocks assigned to cores
 						core_start(j) <= '1';
 						core_block_id(j*8 + 7 downto j*8) <= std_logic_vector(to_unsigned(blocks_dispatched, 8));
 						if blocks_dispatched <= (total_blocks - 1) then
-							core_thread_count(j) <= n_cores * n_threads - (blocks_dispatched * 4);
+							core_thread_count(j) <= to_integer(unsigned(thread_count)) - (blocks_dispatched * 4);
 						else
 							core_thread_count(j) <= 4;
 						end if;

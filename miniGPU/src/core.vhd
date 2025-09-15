@@ -4,16 +4,17 @@ use work.types.all;
 
 entity core is port
 (
-	clock, reset, start, enable, fetcher_mem_read_ready: in std_logic;
+	clock, reset, start, enable: in std_logic;
+	fetcher_mem_read_ready : in std_logic_vector(prog_num_channels - 1 downto 0);
 	mem_read_ready_arr, mem_write_ready_arr : in std_logic_vector(n_threads - 1 downto 0); 
 	block_id : in std_logic_vector(7 downto 0);
 	thread_id : in std_logic_vector(n_threads*2 - 1 downto 0);
 	fetcher_mem_read_valid, done : out std_logic;
-	mem_read_data_arr : in vector_arr(0 to n_threads - 1)(7 downto 0);
+	mem_read_data_arr : in  std_logic_vector(8*(n_threads) - 1 downto 0);
 	fetcher_mem_read_data : in std_logic_vector(15 downto 0);
 	fetcher_mem_read_address : out std_logic_vector(7 downto 0);
-	lsu_mem_read_valid_arr : out std_logic_vector(n_threads - 1 downto 0);
-	mem_write_data_arr, mem_write_address_arr, mem_read_address_arr : out vector_arr(0 to n_threads - 1)(7 downto 0)
+	lsu_mem_read_valid_arr, lsu_mem_write_valid_arr : out std_logic_vector(n_threads - 1 downto 0);
+	mem_write_data_arr, mem_write_address_arr, mem_read_address_arr : out std_logic_vector(8*(n_threads) - 1 downto 0)
 );
 end core;
 
@@ -56,21 +57,6 @@ architecture connections of core is
 	);
 	end component;
 
-
-	component fetcher is port(
-		clock, reset, mem_read_ready	: in std_logic;
-		core_state			: in std_logic_vector(2 downto 0);
-		current_pc			: in std_logic_vector(7 downto 0);
-		mem_read_data		: in std_logic_vector(15 downto 0);
-		
-		mem_read_address	: out std_logic_vector(7 downto 0);
-		instruction			: out std_logic_vector(15 downto 0);
-		mem_read_valid		: out std_logic;
-		
-		fetcher_state		: buffer std_logic_vector(2 downto 0)
-	);
-	end component;
-		
 	component decoder is port(
 		clock, reset		: in std_logic;
 		core_state			: in std_logic_vector(2 downto 0);
@@ -108,7 +94,7 @@ architecture connections of core is
 		mem_read_ready, mem_write_ready				:in std_logic;
 		mem_read_data										:in std_logic_vector(7 downto 0);
 		
-		lsu_mem_read_valid								:out std_logic;
+		lsu_mem_read_valid, lsu_mem_write_valid	:out std_logic;
 		mem_read_address, mem_write_address			:out std_logic_vector(7 downto 0);
 		mem_write_data										:out std_logic_vector(7 downto 0);		
 		new_pc												:out std_logic_vector(7 downto 0);
@@ -122,12 +108,14 @@ begin
 		fetcher_state => fetcher_state, lsu_state => thread_lsu_state_arr,
 		new_pc => new_pc, core_state => core_state,
 		current_pc => current_pc, done => done);
-	fetcher_block: fetcher port map(
-		clock => clock, reset => reset, mem_read_ready => fetcher_mem_read_ready,
+		
+	fetcher_block: entity work.fetcher(fsm) port map(
+		clock => clock, reset => reset, mem_read_ready => fetcher_mem_read_ready(0),
 		core_state => core_state, current_pc => current_pc, 
 		mem_read_data => fetcher_mem_read_data, mem_read_address => fetcher_mem_read_address, --change on confirmation
 		instruction => fetcher_instruction, mem_read_valid => fetcher_mem_read_valid,
 		fetcher_state => fetcher_state);
+		
 	decoder_block: decoder port map(
 		clock => clock, reset => reset, core_state => core_state,
 		instr => fetcher_instruction,
@@ -150,12 +138,13 @@ begin
 		nzp_instr => nzp_instr, reg_input_mux => reg_input_mux, 
 		mem_read_ready => mem_read_ready_arr(i),
 		mem_write_ready => mem_write_ready_arr(i),
-		mem_read_data => mem_read_data_arr(i),
-		mem_read_address => mem_read_address_arr(i),
-		mem_write_address => mem_write_address_arr(i),
-		mem_write_data => mem_write_data_arr(i),
+		mem_read_data => mem_read_data_arr(8*(i+1)-1 downto 8*i),
+		mem_read_address => mem_read_address_arr(8*(i+1)-1 downto 8*i),
+		mem_write_address => mem_write_address_arr(8*(i+1)-1 downto 8*i),
+		mem_write_data => mem_write_data_arr(8*(i+1)-1 downto 8*i),
 		new_pc => new_pc_arr(i),
 		lsu_mem_read_valid => lsu_mem_read_valid_arr(i),
+		lsu_mem_write_valid => lsu_mem_write_valid_arr(i),
 		thread_lsu_state => thread_lsu_state_arr(2*i+1 downto 2*i)
 	);
 	end generate;

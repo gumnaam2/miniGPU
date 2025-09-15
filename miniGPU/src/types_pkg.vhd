@@ -5,6 +5,8 @@ package types is
 	constant n_cores : integer := 2;
 	constant n_threads : integer := 4;
 	
+	constant clk_period : time := 10 ns;
+	
 	constant data_num_channels : integer := 4;
 	constant prog_num_channels : integer := 1;
 	constant data_num_consumers : integer := 8;
@@ -24,4 +26,24 @@ package types is
 	type vector_arr is array(natural range <>) of std_logic_vector;
 	
 	type bit_arr is array(natural range <>) of std_logic;
+	
+--	function to_std_logic_vector(x: bit_vector) return std_logic_vector;
 end package;
+
+package body types is
+
+	function to_std_logic_vector(x: bit_vector) return std_logic_vector is
+		alias lx: bit_vector(1 to x'length) is x;
+		variable ret_val: std_logic_vector(1 to x'length);
+	begin
+		for I in 1 to x'length loop
+			if(lx(I) = '1') then
+				ret_val(I) := '1';
+			else
+				ret_val(I) := '0';
+			end if;
+		end loop; 
+		return ret_val;
+	end to_std_logic_vector;
+
+end package body types;

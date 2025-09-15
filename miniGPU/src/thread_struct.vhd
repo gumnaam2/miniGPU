@@ -19,7 +19,7 @@ port(
 	mem_read_data										:in std_logic_vector(7 downto 0);
 
 	mem_read_address, mem_write_address			:out std_logic_vector(7 downto 0);
-	lsu_mem_read_valid								:out std_logic;
+	lsu_mem_read_valid, lsu_mem_write_valid	:out std_logic;
 	mem_write_data										:out std_logic_vector(7 downto 0);		
 	new_pc												:out std_logic_vector(7 downto 0);
 	thread_lsu_state									:out std_logic_vector(1 downto 0)
@@ -76,7 +76,7 @@ architecture connections of thread_struct is
 		mem_read_ready, mem_write_ready	:in std_logic;
 		mem_read_data							:in std_logic_vector(7 downto 0);
 		
-		mem_read_valid							:out std_logic;
+		mem_read_valid, mem_write_valid	:out std_logic;
 		mem_read_addr, mem_write_addr		:out std_logic_vector(7 downto 0);
 		mem_write_data							:out std_logic_vector(7 downto 0);
 		out_lsu_state							:out std_logic_vector(1 downto 0);
@@ -111,8 +111,8 @@ begin
 		 clock       => clock,
 		 reset       => reset,
 		 enable      => enable,
-		 operand_1   => rt_data_wire,
-		 operand_2   => rs_data_wire,
+		 operand_1   => rs_data_wire,
+		 operand_2   => rt_data_wire,
 		 alu_select  => alu_select,
 		 core_state  => core_state,
 		 alu_out     => alu_out_wire,
@@ -148,7 +148,8 @@ begin
 			mem_write_data     => mem_write_data,
 			out_lsu_state      => out_lsu_state_wire,
 			lsu_out            => lsu_out_wire,
-			mem_read_valid		 => lsu_mem_read_valid
+			mem_read_valid		 => lsu_mem_read_valid,
+			mem_write_valid	 => lsu_mem_write_valid
 		);
 	thread_lsu_state <= out_lsu_state_wire;
 end connections;

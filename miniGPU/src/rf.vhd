@@ -44,12 +44,12 @@ begin
 				rt_data <= (others => '0');
 
 			elsif enable = '1' then
+				registers(13) <= block_id;--block_id
+				registers(15) <= "000000"&thread_id;
 				if reg_write_enable = '1' then --write
-				  registers(13) <= block_id;--block_id
-				  registers(15) <= "000000"&thread_id;
-				  if core_state = "011" then --write
-						rs_data <= registers(to_integer(unsigned(rs_address)));
+					if core_state = "011" then --write
 						rt_data <= registers(to_integer(unsigned(rt_address)));
+						rs_data <= registers(to_integer(unsigned(rs_address)));
 				  end if;
 				  if core_state = "110" then --read from either alu_out, lsu_out, immediate
 						if to_integer(unsigned(rd_address)) < 13 then

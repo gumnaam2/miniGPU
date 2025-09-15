@@ -6,7 +6,7 @@ entity dcr is port(
 	clock, reset, dcr_write_enable : in std_logic;
 	dcr_data : in std_logic_vector(7 downto 0);
 	
-	thread_count : out std_logic_vector(7 downto 0)
+	thread_count : out std_logic_vector(7 downto 0) --total number of threads in the block
 );
 end dcr;
 

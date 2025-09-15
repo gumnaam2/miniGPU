@@ -92,8 +92,13 @@ process(clock) begin
 					reg_write_enable <= '1';
 					reg_input_mux <= "00";
 					alu_select <= "11";
+				when LDR =>
+					mem_read_enable <= '1';
+					reg_write_enable <= '1';
+					reg_input_mux <= "01";
 				when STR =>
 					mem_write_enable <= '1';
+					reg_write_enable <= '1';
 				when CONST =>
 					reg_write_enable <= '1';
 					reg_input_mux <= "10"; --register file takes immediate value and writes to output register

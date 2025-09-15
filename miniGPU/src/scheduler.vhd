@@ -1,5 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use work.types.all;
+
 --use ieee.std_logic_misc.all;
 
 -- Sets the state (core_state) of the FSM and thus flags various components that their output is required 
@@ -29,7 +31,18 @@ architecture fsm of scheduler is
 	constant UPDATE : std_logic_vector(2 downto 0) := "110"; --write to RF, next_pc
 	constant DONE_STATE : std_logic_vector(2 downto 0) := "111"; --activated by decoded_ret, only reset gets IDLE state back
 	signal any_lsu_waiting: std_logic := '0';
+	signal lsu_xors : std_logic_vector(n_threads - 1 downto 0);
 begin
+lsu_waiting:
+	for i in 0 to n_threads-1 generate
+		b: 
+		if i = 0 generate
+			c: lsu_xors(i) <= lsu_state(2*i) xor lsu_state(2*i + 1);
+		else generate
+			d: lsu_xors(i) <= lsu_xors(i-1) or (lsu_state(2*i) xor lsu_state(2*i + 1));
+		end generate;
+	end generate;
+	any_lsu_waiting <= lsu_xors(n_threads-1);
 process(clock) begin
 	if rising_edge(clock) then
 		if reset = '1' then
@@ -48,11 +61,6 @@ process(clock) begin
 			elsif core_state = REQUEST then
 				core_state <= WAIT_STATE;
 			elsif core_state = WAIT_STATE then
-				for i in 0 to 3 loop --each lsu should be in DONE or IDLE, else set any_lsu_waiting high
-					if lsu_state(2*i + 1 downto 2*i) = "01" or lsu_state(2*i + 1 downto 2*i) = "10" then
-						any_lsu_waiting <= '1';
-					end if;
-				end loop;
 				if any_lsu_waiting = '0' then
 					core_state <= EXECUTE;
 				end if;

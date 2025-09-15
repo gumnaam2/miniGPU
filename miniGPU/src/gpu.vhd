@@ -17,18 +17,18 @@ port(
 	
 	data_mem_write_ready : in std_logic_vector(data_num_channels - 1 downto 0);
 	
-	data_mem_read_data : in vector_arr(0 to data_num_channels - 1)(data_data_bits - 1 downto 0);
-	prog_mem_read_data : in vector_arr(0 to prog_num_channels - 1)(prog_data_bits - 1 downto 0);
+	data_mem_read_data : in std_logic_vector(data_num_channels*data_data_bits - 1 downto 0);
+	prog_mem_read_data : in std_logic_vector(prog_num_channels*prog_data_bits - 1 downto 0);
 	
 	data_mem_read_valid : out std_logic_vector(data_num_channels - 1 downto 0);
 	prog_mem_read_valid : out std_logic_vector(prog_num_channels - 1 downto 0);
 	
-	data_mem_read_address : out vector_arr(0 to data_num_channels - 1)(data_addr_bits - 1 downto 0);
-	prog_mem_read_address : out vector_arr(0 to prog_num_channels - 1)(prog_addr_bits - 1 downto 0);
+	data_mem_read_address : out std_logic_vector(data_num_channels*data_addr_bits - 1 downto 0);
+	prog_mem_read_address : out std_logic_vector(prog_num_channels*prog_addr_bits - 1 downto 0);
 	
 	data_mem_write_valid : out std_logic_vector(data_num_channels - 1 downto 0);
-	data_mem_write_address : out vector_arr(0 to data_num_channels - 1)(data_addr_bits - 1 downto 0);
-	data_mem_write_data : out vector_arr(0 to data_num_channels - 1)(data_data_bits - 1 downto 0)
+	data_mem_write_address : out std_logic_vector(data_num_channels *data_addr_bits - 1 downto 0);
+	data_mem_write_data : out std_logic_vector(data_num_channels*data_data_bits - 1 downto 0)
 );
 end gpu;
 
@@ -49,29 +49,21 @@ signal core_thread_id : std_logic_vector(n_cores*n_threads*2 - 1 downto 0);
 
 --core to memory controller
 signal fetcher_mem_read_valid_arr : std_logic_vector(n_cores - 1 downto 0);
-signal fetcher_mem_read_address_arr : vector_arr(0 to n_cores - 1)(7 downto 0);
+signal fetcher_mem_read_address_arr : std_logic_vector(prog_num_consumers*prog_addr_bits - 1 downto 0);
 signal lsu_mem_read_valid_arr, lsu_mem_write_valid_arr : std_logic_vector(data_num_consumers - 1 downto 0);
-signal lsu_mem_write_data_arr : vector_arr(0 to data_num_consumers - 1)(data_data_bits - 1 downto 0);
-signal lsu_mem_read_address_arr, lsu_mem_write_address_arr : vector_arr(0 to data_num_consumers - 1)(data_addr_bits - 1 downto 0);
+signal lsu_mem_write_data_arr : std_logic_vector(data_num_consumers*data_data_bits - 1 downto 0);
+signal lsu_mem_read_address_arr, lsu_mem_write_address_arr : std_logic_vector(data_num_consumers*data_addr_bits - 1 downto 0);
 
---^^n_cores length array with elements as 4 * 8-bit memory signals
 --memory controller to core
 signal lsu_mem_read_ready_arr, lsu_mem_write_ready_arr : std_logic_vector(data_num_consumers - 1 downto 0);
-signal lsu_mem_read_data_arr : vector_arr(0 to data_num_consumers - 1)(data_data_bits - 1 downto 0);
+signal lsu_mem_read_data_arr : std_logic_vector(data_num_consumers*data_data_bits - 1 downto 0);
 signal fetcher_mem_read_ready_arr : std_logic_vector(prog_num_consumers - 1 downto 0);
-signal fetcher_mem_read_data_arr : vector_arr(0 to prog_num_consumers - 1)(prog_data_bits - 1 downto 0);
-
-component dcr is port(
-	clock, reset, dcr_write_enable : in std_logic;
-	dcr_data : in std_logic_vector(7 downto 0);
-	
-	thread_count : out std_logic_vector(7 downto 0)
-);
-end component;
+signal fetcher_mem_read_data_arr : std_logic_vector(prog_num_consumers*prog_data_bits - 1 downto 0);
 
 component dispatcher is port(
 	clock, reset, start : in std_logic;
 	core_done : in std_logic_vector(n_cores-1 downto 0); --DONE from each core
+	thread_count : in std_logic_vector(7 downto 0); --total num of threads to be processed
 	
 	core_start, core_reset : buffer std_logic_vector(n_cores - 1 downto 0);
 	core_block_id : out std_logic_vector(n_cores*8 - 1 downto 0);
@@ -80,54 +72,9 @@ component dispatcher is port(
 );
 end component;
 
-component core is port
-(
-	clock, reset, start, enable, fetcher_mem_read_ready: in std_logic;
-	mem_read_ready_arr, mem_write_ready_arr : in std_logic_vector(n_threads - 1 downto 0); 
-	block_id : in std_logic_vector(7 downto 0);
-	thread_id : in std_logic_vector(n_threads*2 - 1 downto 0);
-	fetcher_mem_read_valid, done : out std_logic;
-	mem_read_data_arr : in vector_arr(0 to n_threads - 1)(7 downto 0);
-	fetcher_mem_read_data : in std_logic_vector(15 downto 0);
-	fetcher_mem_read_address : out std_logic_vector(7 downto 0);
-	lsu_mem_read_valid_arr : out std_logic_vector(n_threads - 1 downto 0);
-	mem_write_data_arr, mem_write_address_arr, mem_read_address_arr : out vector_arr(0 to n_threads - 1)(7 downto 0)
-);
-end component;
-
-component mem_controller is
-generic(
-	addr_bits : integer range 1 to 16 := 8;
-	data_bits : integer range 8 to 16 := 8;
-	num_consumers : integer range 2 to 8 := 8;
-	num_channels : integer range 1 to 4 := 4;
-	write_enable : std_logic := '1'
-);
-port(
-	clock, reset : in std_logic;
-	consumer_read_valid : in std_logic_vector(num_consumers - 1 downto 0);
-	consumer_read_address : in vector_arr(0 to num_consumers - 1)(addr_bits - 1 downto 0);
-	consumer_write_valid : in std_logic_vector(num_consumers - 1 downto 0) := (others => '0');
-	consumer_write_address : in vector_arr(0 to num_consumers - 1)(addr_bits - 1 downto 0) := (others => (others => '0'));
-	consumer_write_data : in vector_arr(0 to num_consumers - 1)(data_bits - 1 downto 0) := (others => (others => '0'));
-	mem_read_ready : in std_logic_vector(num_channels - 1 downto 0);
-	mem_write_ready : in std_logic_vector(num_channels - 1 downto 0) := (others => '0');
-	mem_read_data : in vector_arr(0 to num_channels-1)(data_bits - 1 downto 0);
-	
-	consumer_read_ready : out std_logic_vector(num_consumers - 1 downto 0);
-	consumer_read_data : out vector_arr(0 to num_consumers - 1)(data_bits - 1 downto 0);
-	consumer_write_ready : out std_logic_vector(num_consumers - 1 downto 0) := (others => '0');
-	mem_read_valid : out std_logic_vector(num_channels - 1 downto 0);
-	mem_read_address : out vector_arr(0 to num_channels - 1)(addr_bits - 1 downto 0);
-	mem_write_valid : out std_logic_vector(num_channels - 1 downto 0) := (others => '0');
-	mem_write_address : out vector_arr(0 to num_channels-1)(addr_bits - 1 downto 0) := (others => (others => '0'));
-	mem_write_data : out vector_arr(0 to num_channels-1)(data_bits - 1 downto 0) := (others => (others => '0'))
-);
-end component;
-
 begin
 
-dcr_block : dcr port map(
+dcr_block : entity work.dcr(register_write) port map(
 	clock => clock, reset => ext_reset,
 	dcr_write_enable => dcr_write_en,
 	dcr_data => dcr_data,
@@ -137,6 +84,7 @@ dcr_block : dcr port map(
 dispatcher_block : dispatcher port map(
 	clock => clock, reset => ext_reset,
 	start => start,
+	thread_count => dcr_thread_count,
 	core_done => core_done,
 	core_start => core_start, core_reset => core_reset,
 	core_block_id => core_block_id,
@@ -144,7 +92,7 @@ dispatcher_block : dispatcher port map(
 	core_thread_id => core_thread_id
 );
 
-data_mem_controller_block: mem_controller
+data_mem_controller_block: entity work.mem_controller(fsm)
 generic map(
 	addr_bits => data_addr_bits,
 	data_bits => data_data_bits,
@@ -172,7 +120,7 @@ port map (
 	mem_write_data => data_mem_write_data
 );
 
-prog_mem_controller_block: mem_controller
+prog_mem_controller_block: entity work.mem_controller(fsm)
 generic map(
 	addr_bits => prog_addr_bits,
 	data_bits => prog_data_bits,
@@ -201,24 +149,25 @@ port map (
 );
 
 cores : for i in 0 to n_cores - 1 generate
-nth_core: core port map (
+nth_core: entity work.core(connections) port map (
 	clock => clock, reset => core_reset(i),
 	start => core_start(i),
 	enable => core_enable,
-	fetcher_mem_read_ready => fetcher_mem_read_ready_arr(i),
+	fetcher_mem_read_ready => fetcher_mem_read_ready_arr(i downto i), --change
 	mem_read_ready_arr => lsu_mem_read_ready_arr(n_threads*(i+1)-1 downto n_threads*i),
 	mem_write_ready_arr => lsu_mem_write_ready_arr(n_threads*(i+1)-1 downto n_threads*i),
 	block_id => core_block_id(8*(i+1) - 1 downto 8*i),
 	thread_id => core_thread_id(n_threads*2*(i+1) - 1 downto n_threads*2*i),
 	fetcher_mem_read_valid => fetcher_mem_read_valid_arr(i),
 	done => core_done(i),
-	mem_read_data_arr => lsu_mem_read_data_arr(i*n_threads to (i+1)*n_threads - 1),
-	fetcher_mem_read_data => fetcher_mem_read_data_arr(i),
-	fetcher_mem_read_address => fetcher_mem_read_address_arr(i),
+	mem_read_data_arr => lsu_mem_read_data_arr((i+1)*n_threads*data_data_bits-1 downto i*n_threads*data_data_bits),
+	fetcher_mem_read_data => fetcher_mem_read_data_arr(prog_data_bits*(i+1) - 1 downto prog_data_bits*i),
+	fetcher_mem_read_address => fetcher_mem_read_address_arr(8*(i+1)-1 downto 8*i),
 	lsu_mem_read_valid_arr => lsu_mem_read_valid_arr(n_threads*(i+1)-1 downto n_threads*i),
-	mem_write_data_arr => lsu_mem_write_data_arr(n_threads*i to n_threads*(i+1)-1),
-	mem_write_address_arr => lsu_mem_write_address_arr(n_threads*i to n_threads*(i+1)-1),
-	mem_read_address_arr => lsu_mem_read_address_arr(n_threads*i to n_threads*(i+1)-1)
+	lsu_mem_write_valid_arr => lsu_mem_write_valid_arr(n_threads*(i+1)-1 downto n_threads*i),
+	mem_write_data_arr => lsu_mem_write_data_arr(n_threads*data_data_bits*(i+1)-1 downto n_threads*data_data_bits*i),
+	mem_write_address_arr => lsu_mem_write_address_arr(n_threads*data_addr_bits*(i+1) - 1 downto n_threads*data_addr_bits*i),
+	mem_read_address_arr => lsu_mem_read_address_arr(n_threads*data_addr_bits*(i+1) - 1 downto n_threads*data_addr_bits*i)
 );
 end generate;
 end gpu_arch;

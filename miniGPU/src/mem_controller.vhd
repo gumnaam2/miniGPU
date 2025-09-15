@@ -19,29 +19,30 @@ port(
 
 	clock, reset : in std_logic;
 	consumer_read_valid : in std_logic_vector(num_consumers - 1 downto 0);
-	consumer_read_address : in vector_arr(0 to num_consumers - 1)(addr_bits - 1 downto 0);
+	consumer_read_address : in std_logic_vector(num_consumers*addr_bits - 1 downto 0);
 	consumer_write_valid : in std_logic_vector(num_consumers - 1 downto 0) := (others => '0');
-	consumer_write_address : in vector_arr(0 to num_consumers - 1)(addr_bits - 1 downto 0) := (others => (others => '0'));
-	consumer_write_data : in vector_arr(0 to num_consumers - 1)(data_bits - 1 downto 0) := (others => (others => '0'));
-	mem_read_ready : in std_logic_vector(num_channels - 1 downto 0);
+	consumer_write_address : in std_logic_vector(addr_bits*num_consumers - 1 downto 0) := (others => '0');
+	consumer_write_data : in std_logic_vector(data_bits*num_consumers - 1 downto 0) := (others => '0');
+	mem_read_ready : in std_logic_vector(num_channels - 1 downto 0); --signal that data is here
 	mem_write_ready : in std_logic_vector(num_channels - 1 downto 0) := (others => '0');
-	mem_read_data : in vector_arr(0 to num_channels-1)(data_bits - 1 downto 0);
+	mem_read_data : in std_logic_vector(data_bits*num_channels - 1 downto 0);
 	
 	consumer_read_ready : out std_logic_vector(num_consumers - 1 downto 0);
-	consumer_read_data : out vector_arr(0 to num_consumers - 1)(data_bits - 1 downto 0);
+	consumer_read_data : out std_logic_vector(data_bits*num_consumers - 1 downto 0);
 	consumer_write_ready : out std_logic_vector(num_consumers - 1 downto 0) := (others => '0');
-	mem_read_valid : out std_logic_vector(num_channels - 1 downto 0);
-	mem_read_address : out vector_arr(0 to num_channels - 1)(addr_bits - 1 downto 0);
+	mem_read_valid : out std_logic_vector(num_channels - 1 downto 0); --signal to memory that we are ready to read
+	mem_read_address : out std_logic_vector(addr_bits*num_channels - 1 downto 0);
 	mem_write_valid : out std_logic_vector(num_channels - 1 downto 0) := (others => '0');
-	mem_write_address : out vector_arr(0 to num_channels-1)(addr_bits - 1 downto 0) := (others => (others => '0'));
-	mem_write_data : out vector_arr(0 to num_channels-1)(data_bits - 1 downto 0) := (others => (others => '0'))
+	mem_write_address : out std_logic_vector(addr_bits*num_channels - 1 downto 0) := (others => '0');
+	mem_write_data : out std_logic_vector(data_bits*num_channels - 1 downto 0) := (others => '0')
 );
 end mem_controller;
 
 architecture fsm of mem_controller is
-	signal controller_state : vector_arr(0 to num_channels - 1)(2 downto 0);
+	signal controller_state : vector_arr(0 to num_channels-1)(2 downto 0);
 	type int_arr is array(0 to num_channels - 1) of integer range 0 to num_consumers - 1;
 	signal current_consumer : int_arr;
+	
 	signal channel_serving_consumer : std_logic_vector(num_consumers - 1 downto 0);
 	signal loop_cont : std_logic := '1';
 	
@@ -51,17 +52,19 @@ architecture fsm of mem_controller is
 	constant write_relaying : std_logic_vector(2 downto 0) := "011";
 	constant read_relaying : std_logic_vector(2 downto 0) := "100";
 begin
-process(clock) begin
+process(clock)
+variable idx : integer range 0 to num_consumers-1;
+begin
 if rising_edge(clock) then
 	if reset = '1' then
 		consumer_read_ready <= (others => '0');
-		consumer_read_data <= (others => (others => '0'));
+		consumer_read_data <= (others => '0');
 		consumer_write_ready <= (others => '0');
 		mem_read_valid <= (others => '0');
-		mem_read_address <= (others => (others => '0'));
+		mem_read_address <= (others => '0');
 		mem_write_valid <= (others => '0');
-		mem_write_address <= (others => (others => '0'));
-		mem_write_data <= (others => (others => '0'));
+		mem_write_address <= (others => '0');
+		mem_write_data <= (others => '0');
 		controller_state <= (others => (others => '0'));
 		current_consumer <= (others => 0);
 		channel_serving_consumer <= (others => '0');
@@ -74,15 +77,15 @@ if rising_edge(clock) then
 						channel_serving_consumer(j) <= '1';
 						current_consumer(i) <= j;
 						mem_read_valid(i) <= '1';
-						mem_read_address(i) <= consumer_read_address(j);
+						mem_read_address((i+1)*addr_bits-1 downto i*addr_bits) <= consumer_read_address(addr_bits*(j+1) - 1 downto addr_bits*j);
 						controller_state(i) <= read_waiting;
 						loop_cont <= '0';
 					elsif consumer_write_valid(j) = '1' and channel_serving_consumer(j) = '0' and loop_cont = '1' then
 						channel_serving_consumer(j) <= '1';
 						current_consumer(i) <= j;
 						mem_write_valid(i) <= '1';
-						mem_write_address(i) <= consumer_write_address(j);
-						mem_write_data(i) <= consumer_write_data(j);
+						mem_write_address((i+1)*addr_bits-1 downto i*addr_bits) <= consumer_write_address((j+1)*addr_bits - 1 downto j*addr_bits);
+						mem_write_data((i+1)*data_bits-1 downto i*data_bits) <= consumer_write_data((j+1)*data_bits-1 downto j*data_bits);
 						controller_state(i) <= write_waiting;
 						loop_cont <= '0';
 					end if;
@@ -90,8 +93,10 @@ if rising_edge(clock) then
 			elsif controller_state(i) = read_waiting then
 				if mem_read_ready(i) = '1' then
 					mem_read_valid(i) <= '0';
+					idx := data_bits*current_consumer(i); --for some reason this cannot be done implicitly inside the indexing of the vector_arr
+					--Quartus crashes if I do so
 					consumer_read_ready(current_consumer(i)) <= '1';
-					consumer_read_data(current_consumer(i)) <= mem_read_data(i);
+					consumer_read_data(data_bits+idx-1 downto idx) <= mem_read_data((i+1)*data_bits - 1 downto i*data_bits);
 					controller_state(i) <= read_relaying;
 				end if;
 			elsif controller_state(i) = write_waiting then

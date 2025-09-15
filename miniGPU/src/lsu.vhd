@@ -10,7 +10,7 @@ entity lsu is
 		mem_read_ready, mem_write_ready			:in std_logic;
 		mem_read_data									:in std_logic_vector(7 downto 0);
 		
-		mem_read_valid									:out std_logic;
+		mem_read_valid, mem_write_valid			:out std_logic;
 		mem_read_addr, mem_write_addr				:out std_logic_vector(7 downto 0);
 		mem_write_data									:out std_logic_vector(7 downto 0);
 		out_lsu_state									:out std_logic_vector(1 downto 0);
@@ -47,13 +47,13 @@ process(clock) begin
 						lsu_out <= mem_read_data;
 						lsu_state <= "11";
 						mem_read_valid <= '0';
+					else
 					end if;
 				elsif lsu_state = "11" then --DONE
 					if core_state = "110" then
 						lsu_state <= "00";
 					end if;
 				end if;
-			end if;
 			elsif mem_write_enable = '1' then --store instruction
 				if lsu_state = "00" then
 					if core_state = "011" then
@@ -61,11 +61,13 @@ process(clock) begin
 					end if;
 				elsif lsu_state = "01" then
 					mem_write_addr <= rs_out;
+					mem_write_valid <= '1';
 					mem_write_data <= rt_out;
 					lsu_state <= "10";
 				elsif lsu_state = "10" then
 					if mem_write_ready = '1' then
 						lsu_state <= "11";
+						mem_write_valid <= '0';
 					end if;
 				elsif lsu_state = "11" then
 					if core_state = "110" then
@@ -73,6 +75,7 @@ process(clock) begin
 					end if;
 				end if;
 			end if;
+		end if;
 	end if;
 end process;
 end behavioural;
