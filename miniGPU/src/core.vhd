@@ -11,8 +11,8 @@ entity core is port
 	thread_id : in std_logic_vector(n_threads*2 - 1 downto 0);
 	fetcher_mem_read_valid, done : out std_logic;
 	mem_read_data_arr : in  std_logic_vector(8*(n_threads) - 1 downto 0);
-	fetcher_mem_read_data : in std_logic_vector(15 downto 0);
-	fetcher_mem_read_address : out std_logic_vector(7 downto 0);
+	fetcher_mem_read_data : in std_logic_vector(prog_data_bits - 1 downto 0);
+	fetcher_mem_read_address : out std_logic_vector(prog_addr_bits-1 downto 0);
 	lsu_mem_read_valid_arr, lsu_mem_write_valid_arr : out std_logic_vector(n_threads - 1 downto 0);
 	mem_write_data_arr, mem_write_address_arr, mem_read_address_arr : out std_logic_vector(8*(n_threads) - 1 downto 0)
 );

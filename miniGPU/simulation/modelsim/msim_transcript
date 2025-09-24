@@ -1,0 +1,1011 @@
+# Reading pref.tcl
+# do gpu_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/types_pkg.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/types_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package types
+# -- Compiling package body types
+# -- Loading package types
+# End time: 21:37:29 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/thread_struct.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/thread_struct.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity thread_struct
+# -- Compiling architecture connections of thread_struct
+# End time: 21:37:29 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/rf.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/rf.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rf
+# -- Compiling architecture behavioural of rf
+# End time: 21:37:29 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/pc_nzp.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/pc_nzp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity pc_nzp
+# -- Compiling architecture behavioural of pc_nzp
+# End time: 21:37:29 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/lsu.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/lsu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity lsu
+# -- Compiling architecture behavioural of lsu
+# End time: 21:37:29 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/fetcher.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/fetcher.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fetcher
+# -- Compiling architecture fsm of fetcher
+# End time: 21:37:29 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/decoder.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity decoder
+# -- Compiling architecture conditional of decoder
+# End time: 21:37:29 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/alu.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/alu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity alu
+# -- Compiling architecture behavioural of alu
+# End time: 21:37:29 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/scheduler.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/scheduler.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity scheduler
+# -- Compiling architecture fsm of scheduler
+# End time: 21:37:29 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity core
+# -- Compiling architecture connections of core
+# -- Loading entity fetcher
+# End time: 21:37:29 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:29 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package types
+# -- Compiling entity prog_mem_rom
+# -- Compiling architecture rtl of prog_mem_rom
+# ** Warning: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd(46): (vcom-1283) Cannot reference file "INFILE" inside pure function "init_rom".
+# ** Warning: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd(47): (vcom-1283) Cannot reference file "INFILE" inside pure function "init_rom".
+# End time: 21:37:30 on Sep 24,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 2
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:30 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package types
+# -- Compiling entity data_mem_ram
+# -- Compiling architecture rtl of data_mem_ram
+# End time: 21:37:30 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_controller_2.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:30 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_controller_2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package types
+# -- Compiling entity mem_controller_2
+# -- Compiling architecture arch of mem_controller_2
+# End time: 21:37:30 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_with_controller.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:30 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_with_controller.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity ram_with_controller
+# -- Compiling architecture arch of ram_with_controller
+# -- Loading package NUMERIC_STD
+# -- Loading entity mem_controller_2
+# -- Loading entity data_mem_ram
+# -- Compiling entity prog_mem_with_controller
+# -- Compiling architecture arch of prog_mem_with_controller
+# -- Loading entity prog_mem_rom
+# End time: 21:37:30 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_RAM_dut.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:30 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_RAM_dut.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity core_RAM_dut
+# -- Compiling architecture dut_arch of core_RAM_dut
+# -- Loading entity ram_with_controller
+# -- Loading entity prog_mem_with_controller
+# -- Loading entity core
+# End time: 21:37:30 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# do "C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/sim_src/core_sim_2.tcl"
+# transcript on
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Modifying modelsim.ini
+# 
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/types_pkg.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:31 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/types_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package types
+# -- Compiling package body types
+# -- Loading package types
+# End time: 21:37:31 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/thread_struct.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:31 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/thread_struct.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity thread_struct
+# -- Compiling architecture connections of thread_struct
+# End time: 21:37:31 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/rf.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:31 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/rf.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity rf
+# -- Compiling architecture behavioural of rf
+# End time: 21:37:31 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/pc_nzp.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:31 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/pc_nzp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity pc_nzp
+# -- Compiling architecture behavioural of pc_nzp
+# End time: 21:37:31 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/lsu.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:31 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/lsu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity lsu
+# -- Compiling architecture behavioural of lsu
+# End time: 21:37:31 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/fetcher.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:31 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/fetcher.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fetcher
+# -- Compiling architecture fsm of fetcher
+# End time: 21:37:31 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/decoder.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:31 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity decoder
+# -- Compiling architecture conditional of decoder
+# End time: 21:37:31 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/alu.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:31 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/alu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity alu
+# -- Compiling architecture behavioural of alu
+# End time: 21:37:31 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/scheduler.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:31 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/scheduler.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity scheduler
+# -- Compiling architecture fsm of scheduler
+# End time: 21:37:31 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:31 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity core
+# -- Compiling architecture connections of core
+# -- Loading entity fetcher
+# End time: 21:37:31 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:32 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package types
+# -- Compiling entity prog_mem_rom
+# -- Compiling architecture rtl of prog_mem_rom
+# ** Warning: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd(46): (vcom-1283) Cannot reference file "INFILE" inside pure function "init_rom".
+# ** Warning: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd(47): (vcom-1283) Cannot reference file "INFILE" inside pure function "init_rom".
+# End time: 21:37:32 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:32 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package types
+# -- Compiling entity data_mem_ram
+# -- Compiling architecture rtl of data_mem_ram
+# End time: 21:37:32 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_controller_2.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:32 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_controller_2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package types
+# -- Compiling entity mem_controller_2
+# -- Compiling architecture arch of mem_controller_2
+# End time: 21:37:32 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_with_controller.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:32 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_with_controller.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity ram_with_controller
+# -- Compiling architecture arch of ram_with_controller
+# -- Loading package NUMERIC_STD
+# -- Loading entity mem_controller_2
+# -- Loading entity data_mem_ram
+# -- Compiling entity prog_mem_with_controller
+# -- Compiling architecture arch of prog_mem_with_controller
+# -- Loading entity prog_mem_rom
+# End time: 21:37:32 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_RAM_dut.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:32 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_RAM_dut.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity core_RAM_dut
+# -- Compiling architecture dut_arch of core_RAM_dut
+# -- Loading entity ram_with_controller
+# -- Loading entity prog_mem_with_controller
+# -- Loading entity core
+# End time: 21:37:33 on Sep 24,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:33 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity core
+# -- Compiling architecture connections of core
+# -- Loading entity fetcher
+# End time: 21:37:33 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:33 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package types
+# -- Compiling entity data_mem_ram
+# -- Compiling architecture rtl of data_mem_ram
+# End time: 21:37:33 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:33 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package types
+# -- Compiling entity prog_mem_rom
+# -- Compiling architecture rtl of prog_mem_rom
+# ** Warning: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd(46): (vcom-1283) Cannot reference file "INFILE" inside pure function "init_rom".
+# ** Warning: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd(47): (vcom-1283) Cannot reference file "INFILE" inside pure function "init_rom".
+# End time: 21:37:33 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_RAM_dut.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:33 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_RAM_dut.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity core_RAM_dut
+# -- Compiling architecture dut_arch of core_RAM_dut
+# -- Loading entity ram_with_controller
+# -- Loading entity prog_mem_with_controller
+# -- Loading entity core
+# End time: 21:37:33 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_sim_2.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:37:33 on Sep 24,2025
+# vcom -reportprogress 300 -2008 -work work C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_sim_2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package types
+# -- Compiling entity core_sim_2
+# -- Compiling architecture sim of core_sim_2
+# End time: 21:37:33 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  core_sim_2
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" core_sim_2 
+# Start time: 21:37:33 on Sep 24,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.types(body)
+# Loading work.core_sim_2(sim)
+# Loading work.core_ram_dut(dut_arch)
+# Loading ieee.numeric_std(body)
+# Loading work.ram_with_controller(arch)
+# Loading work.mem_controller_2(arch)
+# Loading work.data_mem_ram(rtl)
+# Loading work.prog_mem_with_controller(arch)
+# Loading work.prog_mem_rom(rtl)
+# ** Note: 37119
+#    Time: 0 ps  Iteration: 0  Instance: /core_sim_2/dut_inst/progmem/prog_mem File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd
+# ** Note: 33008
+#    Time: 0 ps  Iteration: 0  Instance: /core_sim_2/dut_inst/progmem/prog_mem File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd
+# ** Note: 61680
+#    Time: 0 ps  Iteration: 0  Instance: /core_sim_2/dut_inst/progmem/prog_mem File: C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd
+# Loading work.core(connections)
+# Loading work.scheduler(fsm)
+# Loading work.fetcher(fsm)
+# Loading work.decoder(conditional)
+# Loading work.thread_struct(connections)
+# Loading work.rf(behavioural)
+# Loading work.alu(behavioural)
+# Loading work.pc_nzp(behavioural)
+# Loading work.lsu(behavioural)
+# 
+#add wave *
+#add wave -position insertpoint sim:/core_sim_2/dut_inst/core/threads(1)/thread/lsu_block/*
+#add wave -position insertpoint sim:/core_sim_2/dut_inst/core/fetcher_block/*
+#add wave -position insertpoint sim:/core_sim_2/dut_inst/ram/*
+#add wave -position insertpoint sim:/core_sim_2/dut_inst/progmem/*
+# 
+#
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/consumer_ids
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/next_consumer_ids
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/consumer_wens
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/next_wens
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/completed_requests
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/completed_wen
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/consumer_read_addr
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/consumer_read_req
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/consumer_write_req
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/mem_read_addr
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/mem_read_data
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/consumer_read_done
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/n_filled_reg
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/n_completed
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/progmem/cont/clock
+#
+#
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/consumer_ids
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/next_consumer_ids
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/consumer_wens
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/next_wens
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/completed_requests
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/completed_wen
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/consumer_read_addr
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/consumer_write_addr
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/consumer_write_data
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/consumer_read_req
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/consumer_write_req
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/mem_read_addr
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/mem_read_data
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/mem_write_addr
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/mem_write_data
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/mem_write_en
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/consumer_read_done
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/n_filled_reg
+#add wave -position insertpoint  \
+#sim:/core_sim_2/dut_inst/ram/cont/clock
+# 
+# add wave -position insertpoint sim:/core_sim_2/dut_inst/progmem/cont/*
+# add wave -position insertpoint sim:/core_sim_2/dut_inst/ram/cont/*
+#add wave -position insertpoint sim:/core_sim_2/dut_inst/ram/cont/read_requests/*
+#add wave -position insertpoint sim:/core_sim_2/dut_inst/ram/cont/handle_channel/*
+# 
+#view structure
+#view signals
+# run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/ram
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/prog_mem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/core/threads(0)/thread/alu_block
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/core/threads(0)/thread/alu_block
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/core/threads(1)/thread/alu_block
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/core/threads(1)/thread/alu_block
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/core/threads(2)/thread/alu_block
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/core/threads(2)/thread/alu_block
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/core/threads(3)/thread/alu_block
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/core/threads(3)/thread/alu_block
+# ** Note: 0
+#    Time: 40 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/ram
+# ** Note: 0
+#    Time: 40 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 60 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 60 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 80 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 1
+#    Time: 80 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 100 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 100 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 120 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 1
+#    Time: 120 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 140 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 140 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 160 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 160 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 180 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 180 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 200 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 200 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 220 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 220 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 240 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 240 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 260 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 260 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 280 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 280 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 300 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 1
+#    Time: 300 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 320 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 320 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 340 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 1
+#    Time: 340 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 360 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 360 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 380 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 380 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 400 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 400 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 420 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 420 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 440 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 440 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 460 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 460 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 480 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 480 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 500 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 500 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 520 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 1
+#    Time: 520 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 540 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 540 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 560 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 1
+#    Time: 560 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 580 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 580 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 600 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 600 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 620 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 620 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 640 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 640 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 0
+#    Time: 660 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 660 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 4
+#    Time: 680 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 680 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 3
+#    Time: 700 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 700 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 3
+#    Time: 720 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 720 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 3
+#    Time: 740 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 740 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 3
+#    Time: 760 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 760 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 3
+#    Time: 780 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 780 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 800 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 800 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 820 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 820 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 840 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 840 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 860 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 860 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 880 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 880 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 900 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 900 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 920 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 920 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 940 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 940 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 960 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 960 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 980 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 980 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1 us  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1 us  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1020 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1020 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1040 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1040 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1060 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1060 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1080 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1080 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1100 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1100 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1120 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1120 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1140 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1140 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1160 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1160 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1180 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1180 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1200 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1200 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1220 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1220 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1240 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1240 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1260 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1260 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1280 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1280 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1300 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1300 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1320 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1320 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1340 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1340 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1360 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1360 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1380 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1380 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1400 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1400 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1420 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1420 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1440 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1440 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1460 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1460 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1480 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1480 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1500 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1500 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1520 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1520 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1540 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1540 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1560 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1560 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1580 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1580 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1600 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1600 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1620 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1620 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1640 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1640 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1660 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1660 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1680 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1680 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1700 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1700 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1720 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1720 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1740 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1740 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1760 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1760 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1780 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1780 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1800 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1800 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1820 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1820 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1840 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1840 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1860 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1860 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1880 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1880 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1900 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1900 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1920 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1920 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1940 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1940 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1960 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1960 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 1980 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 1980 ns  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont
+# ** Note: 2
+#    Time: 2 us  Iteration: 1  Instance: /core_sim_2/dut_inst/ram/cont
+# ** Note: 0
+#    Time: 2 us  Iteration: 1  Instance: /core_sim_2/dut_inst/progmem/cont

@@ -43,24 +43,16 @@ data_retrieve: process --read the program in the txt, store in program as logic 
 	File INFILE: text open read_mode is "program.txt";
 	FILE OUTFILE: text  open write_mode is "outputs.txt";
 		
-	variable input_vector_var: bit_vector (15 downto 0);
---	variable output_vector_var: bit_vector (number_of_outputs-1 downto 0);
---	variable output_mask_var: bit_vector (number_of_outputs-1 downto 0);
-	
+	variable input_vector_var: bit_vector (15 downto 0);	
 	variable inp_line : Line;
---	variable out_line : Line;
 	variable line_count: integer := 0;
 
 begin
 	while not endfile(INFILE) loop
 		readLine (INFILE, inp_line);
 		read (inp_line, input_vector_var);
-		program(line_count) <= to_std_logic_vector(input_vector_var);
-		
---		report to_integer(unsigned'(unsigned(program(line_count)))); --print program line in hex
-		
+		program(line_count) <= to_std_logic_vector(input_vector_var);		
 		line_count := line_count + 1;
---		read (INPUT_LINE, output_mask_var);
 	end loop;
 	wait;
 end process;

@@ -1,0 +1,748 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/simulation/modelsim
+Ealu
+Z1 w1750343211
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 7
+R0
+Z5 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/alu.vhd
+Z6 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/alu.vhd
+l0
+L5 1
+V>AX<H=J:Dh3feA_V<iW8H1
+!s100 dY1zTbKOANMBDm1Ad9A6n3
+Z7 OV;C;2020.1;71
+33
+Z8 !s110 1758730051
+!i10b 1
+Z9 !s108 1758730051.000000
+Z10 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/alu.vhd|
+Z11 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/alu.vhd|
+!i113 1
+Z12 o-2008 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioural
+R2
+R3
+R4
+DEx4 work 3 alu 0 22 >AX<H=J:Dh3feA_V<iW8H1
+!i122 7
+l21
+L19 46
+VUhHakCa=Z0hT9fQCcSjhC2
+!s100 SK08ATUOfAJ]0zW<WBnO_3
+R7
+33
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ecore
+Z14 w1758461394
+Z15 DPx4 work 5 types 0 22 JUj2VHn_XBijN<l^Ok:1[0
+R3
+R4
+!i122 15
+R0
+Z16 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd
+Z17 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd
+l0
+L5 1
+VVinaKSOh9D`Oe0Oj_keeF3
+!s100 7_4h>7`O6E<5zW0LhYE?D0
+R7
+33
+Z18 !s110 1758730053
+!i10b 1
+Z19 !s108 1758730053.000000
+Z20 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd|
+Z21 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd|
+!i113 1
+R12
+R13
+Aconnections
+Z22 DEx4 work 7 fetcher 0 22 NC<oj989=49_6TgBWjFE43
+R15
+R3
+R4
+Z23 DEx4 work 4 core 0 22 VinaKSOh9D`Oe0Oj_keeF3
+!i122 15
+l104
+L21 136
+VmgJ>6n^8D?>GGIR1B3hHT3
+!s100 l:ILGbUCzWM?bNL`hG8XL1
+R7
+33
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R12
+R13
+Ecore_ram_dut
+Z24 w1758623729
+R15
+R3
+R4
+!i122 18
+R0
+Z25 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_RAM_dut.vhd
+Z26 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_RAM_dut.vhd
+l0
+L6 1
+VQ4F=jhbMM=>n66LZ5X>DL3
+!s100 F8IWmaoI32RGob]CVUBB33
+R7
+33
+R18
+!i10b 1
+R19
+Z27 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_RAM_dut.vhd|
+Z28 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_RAM_dut.vhd|
+!i113 1
+R12
+R13
+Adut_arch
+R23
+Z29 DEx4 work 24 prog_mem_with_controller 0 22 j]aESeiGARe:8BamN`e_l1
+Z30 DEx4 work 19 ram_with_controller 0 22 [W]8[FSYb0DbbohEFe]B?3
+R15
+R3
+R4
+DEx4 work 12 core_ram_dut 0 22 Q4F=jhbMM=>n66LZ5X>DL3
+!i122 18
+l29
+L14 81
+V42G9oV0lQjN8447_JJV5L2
+!s100 J0Q0hL]`WnC>HmTX0kO7W0
+R7
+33
+R18
+!i10b 1
+R19
+R27
+R28
+!i113 1
+R12
+R13
+Ecore_sim_2
+Z31 w1758623892
+R15
+R4
+R3
+!i122 19
+R0
+Z32 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_sim_2.vhd
+Z33 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_sim_2.vhd
+l0
+L9 1
+VDYNHjA=NaO8dRVLcGQDDd1
+!s100 CU@Zkl1IL[O]TB6c9FoHU2
+R7
+33
+R18
+!i10b 1
+R19
+Z34 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_sim_2.vhd|
+!s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_sim_2.vhd|
+!i113 1
+R12
+R13
+Asim
+R15
+R4
+R3
+DEx4 work 10 core_sim_2 0 22 DYNHjA=NaO8dRVLcGQDDd1
+!i122 19
+l24
+L12 43
+VhIm`AUDnk9iBZHW8M>Mi[1
+!s100 5za42d58HfOW;CL98mD<P3
+R7
+33
+R18
+!i10b 1
+R19
+R34
+Z35 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/core_sim_2.vhd|
+!i113 1
+R12
+R13
+Edata_mem_ram
+Z36 w1758439597
+R15
+R2
+R3
+R4
+!i122 16
+R0
+Z37 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd
+Z38 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd
+l0
+L8 1
+V<e3aa72XIWRFIj>eXQHjA0
+!s100 _7TFB@0lbXRDdYCbfK3OH3
+R7
+33
+R18
+!i10b 1
+R19
+Z39 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd|
+Z40 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd|
+!i113 1
+R12
+R13
+Artl
+R15
+R2
+R3
+R4
+Z41 DEx4 work 12 data_mem_ram 0 22 <e3aa72XIWRFIj>eXQHjA0
+!i122 16
+l23
+L19 22
+V8idKcWDlaB8Sd0G[5MA<g1
+!s100 ee1?X4Rd@0AB507fTX]ED2
+R7
+33
+R18
+!i10b 1
+R19
+R39
+R40
+!i113 1
+R12
+R13
+Edecoder
+Z42 w1757793589
+R3
+R4
+!i122 6
+R0
+Z43 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/decoder.vhd
+Z44 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/decoder.vhd
+l0
+L4 1
+VQ3UfZ:U=?D_QH7n?3a4>S1
+!s100 9=XZcK_7z?l0=i?:Mn3:l2
+R7
+33
+R8
+!i10b 1
+R9
+Z45 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/decoder.vhd|
+Z46 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/decoder.vhd|
+!i113 1
+R12
+R13
+Aconditional
+R3
+R4
+DEx4 work 7 decoder 0 22 Q3UfZ:U=?D_QH7n?3a4>S1
+!i122 6
+l41
+L25 89
+Vj9hKO4EQ4>2m?G_DBW[5G0
+!s100 B[E^]`87F8XEnmN_Z]CX43
+R7
+33
+R8
+!i10b 1
+R9
+R45
+R46
+!i113 1
+R12
+R13
+Efetcher
+Z47 w1753612441
+R3
+R4
+!i122 5
+R0
+Z48 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/fetcher.vhd
+Z49 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/fetcher.vhd
+l0
+L4 1
+VNC<oj989=49_6TgBWjFE43
+!s100 2Fo?kVTbm`X_m6TgiBGBd1
+R7
+33
+R8
+!i10b 1
+R9
+Z50 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/fetcher.vhd|
+Z51 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/fetcher.vhd|
+!i113 1
+R12
+R13
+Afsm
+R3
+R4
+R22
+!i122 5
+l26
+L18 39
+Vgfe4T<0I?lUYP<>jD12MY0
+!s100 jP2=^L8RZ31KBEmMC]E7K1
+R7
+33
+R8
+!i10b 1
+R9
+R50
+R51
+!i113 1
+R12
+R13
+Elsu
+Z52 w1757179580
+R3
+R4
+!i122 4
+R0
+Z53 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/lsu.vhd
+Z54 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/lsu.vhd
+l0
+L4 1
+V6XZ]1koghDf9UEkQojeA`0
+!s100 DQZ=@SeWBTTDlO:oLc]g@1
+R7
+33
+R8
+!i10b 1
+R9
+Z55 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/lsu.vhd|
+Z56 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/lsu.vhd|
+!i113 1
+R12
+R13
+Abehavioural
+R3
+R4
+DEx4 work 3 lsu 0 22 6XZ]1koghDf9UEkQojeA`0
+!i122 4
+l24
+L21 61
+Vz[[VD6LeZk:RH>ERckdBf3
+!s100 M`z9mW;@Hm0go^>4lff><3
+R7
+33
+R8
+!i10b 1
+R9
+R55
+R56
+!i113 1
+R12
+R13
+Emem_controller_2
+Z57 w1758729945
+R15
+R2
+R3
+R4
+!i122 12
+R0
+Z58 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_controller_2.vhd
+Z59 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_controller_2.vhd
+l0
+L7 1
+V]187RMR1ia6gamH^eX2RC2
+!s100 gRoEBzP<JI`F7ngR]cm293
+R7
+33
+Z60 !s110 1758730052
+!i10b 1
+Z61 !s108 1758730052.000000
+Z62 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_controller_2.vhd|
+Z63 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_controller_2.vhd|
+!i113 1
+R12
+R13
+Aarch
+R15
+R2
+R3
+R4
+Z64 DEx4 work 16 mem_controller_2 0 22 ]187RMR1ia6gamH^eX2RC2
+!i122 12
+l53
+L36 182
+V2GSFcKghU=:>C1RT^@1D=2
+!s100 Fd49j_fgz6CcUQelW0DTZ1
+R7
+33
+R60
+!i10b 1
+R61
+R62
+R63
+!i113 1
+R12
+R13
+Epc_nzp
+Z65 w1757840290
+R2
+R3
+R4
+!i122 3
+R0
+Z66 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/pc_nzp.vhd
+Z67 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/pc_nzp.vhd
+l0
+L5 1
+ViMiOJML>VlD:PzLaJaah00
+!s100 T3<Y^hYm1E[ASPnN<]E710
+R7
+33
+R8
+!i10b 1
+R9
+Z68 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/pc_nzp.vhd|
+Z69 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/pc_nzp.vhd|
+!i113 1
+R12
+R13
+Abehavioural
+R2
+R3
+R4
+DEx4 work 6 pc_nzp 0 22 iMiOJML>VlD:PzLaJaah00
+!i122 3
+l30
+L17 40
+VA:NcH=5621A23@hSO_Q:R3
+!s100 IN?mD5Q_RS=6HE4OYM^Z32
+R7
+33
+R8
+!i10b 1
+R9
+R68
+R69
+!i113 1
+R12
+R13
+Eprog_mem_rom
+Z70 w1758710089
+R15
+R2
+R3
+R4
+!i122 17
+R0
+Z71 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd
+Z72 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd
+l0
+L8 1
+VTQJI34GbG^@7E`e^a:Xc;3
+!s100 ]gj@?VHK6K@kAd=3?[U:A2
+R7
+33
+R18
+!i10b 1
+R19
+Z73 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd|
+Z74 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd|
+!i113 1
+R12
+R13
+Artl
+R15
+R2
+R3
+R4
+Z75 DEx4 work 12 prog_mem_rom 0 22 TQJI34GbG^@7E`e^a:Xc;3
+!i122 17
+l63
+L16 55
+VecFA06R[QfTf4=OCE5_XM0
+!s100 =ADdZT`;^>_o??AD_CiMi1
+R7
+33
+R18
+!i10b 1
+R19
+R73
+R74
+!i113 1
+R12
+R13
+Eprog_mem_with_controller
+Z76 w1758621929
+R15
+R3
+R4
+!i122 13
+R0
+Z77 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_with_controller.vhd
+Z78 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_with_controller.vhd
+l0
+L78 1
+Vj]aESeiGARe:8BamN`e_l1
+!s100 n^HJDCRWe<cJKC=IWXVj71
+R7
+33
+R60
+!i10b 1
+R61
+Z79 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_with_controller.vhd|
+Z80 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_with_controller.vhd|
+!i113 1
+R12
+R13
+Aarch
+R75
+R2
+R64
+R15
+R3
+R4
+R29
+!i122 13
+l108
+L100 40
+V3gWQO<0o2?MHc438H?F6j3
+!s100 Y_B1<M2LZc]EizCLB=ThW0
+R7
+33
+R60
+!i10b 1
+R61
+R79
+R80
+!i113 1
+R12
+R13
+Eram_with_controller
+R76
+R15
+R3
+R4
+!i122 13
+R0
+R77
+R78
+l0
+L6 1
+V[W]8[FSYb0DbbohEFe]B?3
+!s100 oS39`3GhjaDaf]RKck5@k0
+R7
+33
+R60
+!i10b 1
+R61
+R79
+R80
+!i113 1
+R12
+R13
+Aarch
+R41
+R2
+R64
+R15
+R3
+R4
+R30
+!i122 13
+l36
+L28 43
+V^CLDfli<PMNQcDCOemZ>i0
+!s100 TOW6@?V>IB=n^2IeBo7?A2
+R7
+33
+R60
+!i10b 1
+R61
+R79
+R80
+!i113 1
+R12
+R13
+Erf
+Z81 w1758174473
+R2
+R3
+R4
+!i122 2
+R0
+Z82 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/rf.vhd
+Z83 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/rf.vhd
+l0
+L5 1
+VBglEgXR7`iA<V@l2f:P433
+!s100 9CF^oo2b:J@:n:^KXmgoW0
+R7
+33
+R8
+!i10b 1
+R9
+Z84 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/rf.vhd|
+Z85 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/rf.vhd|
+!i113 1
+R12
+R13
+Abehavioural
+R2
+R3
+R4
+DEx4 work 2 rf 0 22 BglEgXR7`iA<V@l2f:P433
+!i122 2
+l31
+L26 48
+VhAl6gciVmLma:CJVE[_2E3
+!s100 99e1`]nZFQGb@_LmUhmMM1
+R7
+33
+R8
+!i10b 1
+R9
+R84
+R85
+!i113 1
+R12
+R13
+Escheduler
+Z86 w1757185059
+R15
+R3
+R4
+!i122 8
+R0
+Z87 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/scheduler.vhd
+Z88 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/scheduler.vhd
+l0
+L8 1
+VUj?hhfneQL6kgkDK1YJ]I3
+!s100 =JoXhneE0m3:<R3QG=VUz2
+R7
+33
+R8
+!i10b 1
+R9
+Z89 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/scheduler.vhd|
+Z90 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/scheduler.vhd|
+!i113 1
+R12
+R13
+Afsm
+R15
+R3
+R4
+DEx4 work 9 scheduler 0 22 Uj?hhfneQL6kgkDK1YJ]I3
+!i122 8
+l35
+L24 60
+VePEzZMHWQk5jMK@C@cmnK2
+!s100 z?;hbD3mD]aoIQcNn_<W90
+R7
+33
+R8
+!i10b 1
+R9
+R89
+R90
+!i113 1
+R12
+R13
+Ethread_struct
+Z91 w1757843596
+R3
+R4
+!i122 1
+R0
+Z92 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/thread_struct.vhd
+Z93 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/thread_struct.vhd
+l0
+L4 1
+VHb:c[hID3aZ`9LKhCOgHH3
+!s100 @8@geO5=X=6A;DTK84eBL2
+R7
+33
+R8
+!i10b 1
+R9
+Z94 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/thread_struct.vhd|
+Z95 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/thread_struct.vhd|
+!i113 1
+R12
+R13
+Aconnections
+R3
+R4
+DEx4 work 13 thread_struct 0 22 Hb:c[hID3aZ`9LKhCOgHH3
+!i122 1
+l89
+L29 127
+Vfo9RQlB?0@>gmSaId>=oY1
+!s100 =KVC;Q7B`^_677Zc1AEf21
+R7
+33
+R8
+!i10b 1
+R9
+R94
+R95
+!i113 1
+R12
+R13
+Ptypes
+R3
+R4
+!i122 0
+Z96 w1758459942
+R0
+Z97 8C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/types_pkg.vhd
+Z98 FC:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/types_pkg.vhd
+l0
+L4 1
+VJUj2VHn_XBijN<l^Ok:1[0
+!s100 TBCBGgkWVcaI7JB0[M1WY1
+R7
+33
+R8
+!i10b 1
+R9
+Z99 !s90 -reportprogress|300|-2008|-work|work|C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/types_pkg.vhd|
+Z100 !s107 C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/types_pkg.vhd|
+!i113 1
+R12
+R13
+Bbody
+R15
+R3
+R4
+!i122 0
+l0
+L33 1
+Vd:j^NMj`2B5X]7najK3Ca1
+!s100 KSZ9IOBnRIfXQ?j1[^1V[1
+R7
+33
+R8
+!i10b 1
+R9
+R99
+R100
+!i113 1
+R12
+R13

@@ -11,20 +11,20 @@ entity sim is port(
 end sim;
 
 architecture behav of sim is
---	
---	function to_std_logic_vector(x: bit_vector) return std_logic_vector is
---		alias lx: bit_vector(1 to x'length) is x;
---		variable ret_val: std_logic_vector(1 to x'length);
---	begin
---		for I in 1 to x'length loop
---			if(lx(I) = '1') then
---				ret_val(I) := '1';
---			else
---				ret_val(I) := '0';
---			end if;
---		end loop; 
---		return ret_val;
---	end to_std_logic_vector;
+	
+	function to_std_logic_vector(x: bit_vector) return std_logic_vector is
+		alias lx: bit_vector(1 to x'length) is x;
+		variable ret_val: std_logic_vector(1 to x'length);
+	begin
+		for I in 1 to x'length loop
+			if(lx(I) = '1') then
+				ret_val(I) := '1';
+			else
+				ret_val(I) := '0';
+			end if;
+		end loop; 
+		return ret_val;
+	end to_std_logic_vector;
 
 	constant data_len : integer := 4;
 	

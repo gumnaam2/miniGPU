@@ -1,0 +1,93 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "done",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "start",
+					"strict" : false
+				},
+				{
+					"name" : "enable",
+					"strict" : false
+				},
+				{
+					"name" : "block_id[1]",
+					"strict" : false
+				},
+				{
+					"name" : "thread_id[1]",
+					"strict" : false
+				},
+				{
+					"name" : "block_id[0]",
+					"strict" : false
+				},
+				{
+					"name" : "thread_id[0]",
+					"strict" : false
+				},
+				{
+					"name" : "block_id[3]",
+					"strict" : false
+				},
+				{
+					"name" : "block_id[2]",
+					"strict" : false
+				},
+				{
+					"name" : "block_id[5]",
+					"strict" : false
+				},
+				{
+					"name" : "block_id[4]",
+					"strict" : false
+				},
+				{
+					"name" : "block_id[7]",
+					"strict" : false
+				},
+				{
+					"name" : "block_id[6]",
+					"strict" : false
+				},
+				{
+					"name" : "thread_id[3]",
+					"strict" : false
+				},
+				{
+					"name" : "thread_id[5]",
+					"strict" : false
+				},
+				{
+					"name" : "thread_id[7]",
+					"strict" : false
+				},
+				{
+					"name" : "thread_id[4]",
+					"strict" : false
+				},
+				{
+					"name" : "thread_id[2]",
+					"strict" : false
+				},
+				{
+					"name" : "thread_id[6]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

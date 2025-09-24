@@ -7,7 +7,7 @@ package types is
 	
 	constant clk_period : time := 10 ns;
 	
-	constant data_num_channels : integer := 4;
+	constant data_num_channels : integer := 1;
 	constant prog_num_channels : integer := 1;
 	constant data_num_consumers : integer := 8;
 	constant prog_num_consumers : integer := 2;
@@ -26,7 +26,7 @@ package types is
 	type vector_arr is array(natural range <>) of std_logic_vector;
 	
 	type bit_arr is array(natural range <>) of std_logic;
-	
+
 --	function to_std_logic_vector(x: bit_vector) return std_logic_vector;
 end package;
 

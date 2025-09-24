@@ -1,0 +1,5 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,core:core|thread_struct:\threads:0:thread|alu:alu_block|lpm_mult:Mult0|mult_0ls:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,core:core|thread_struct:\threads:1:thread|alu:alu_block|lpm_mult:Mult0|mult_0ls:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,core:core|thread_struct:\threads:2:thread|alu:alu_block|lpm_mult:Mult0|mult_0ls:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,core:core|thread_struct:\threads:3:thread|alu:alu_block|lpm_mult:Mult0|mult_0ls:auto_generated|mac_out2,

@@ -1,0 +1,18 @@
+Fitter Status : Successful - Wed Sep 24 21:37:09 2025
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : gpu
+Top-level Entity Name : core_RAM_dut
+Family : MAX 10
+Device : 10M08DAF484C8G
+Timing Models : Final
+Total logic elements : 1,815 / 8,064 ( 23 % )
+    Total combinational functions : 1,656 / 8,064 ( 21 % )
+    Dedicated logic registers : 824 / 8,064 ( 10 % )
+Total registers : 824
+Total pins : 21 / 250 ( 8 % )
+Total virtual pins : 0
+Total memory bits : 4,224 / 387,072 ( 1 % )
+Embedded Multiplier 9-bit elements : 4 / 48 ( 8 % )
+Total PLLs : 0 / 2 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )
