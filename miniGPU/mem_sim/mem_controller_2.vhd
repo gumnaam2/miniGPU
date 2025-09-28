@@ -45,11 +45,12 @@ architecture arch of mem_controller_2 is
 	type req_arr is array(0 to n_channels - 1) of integer range 0 to n_consumers - 1;
 	
 	signal completed_requests, next_completed_requests: req_arr; 
-	--signal done_requests, next_done_requests : req_arr; --to be signalled "done"
-	signal n_completed : integer range 0 to n_channels := 0; -- number of completed requests waiting to be returned to consumer
+	signal done_requests : req_arr; --to be signalled "done"
+	signal n_completed, n_done : integer range 0 to n_channels := 0; -- number of completed requests waiting to be returned to consumer
 	signal n_filled_reg, next_n_filled : integer range 0 to n_consumers := 0;
 	--whether completed signals were write or not
 	signal completed_wen, completed_ren : std_logic_vector(n_channels - 1 downto 0);
+	--signal done_wen, done_ren : std_logic_vector(n_channels - 1 downto 0);
 begin
 
 assign_regs : process(clock) begin
@@ -84,26 +85,19 @@ if rising_edge(clock) then
 	if reset = '1' then
 		n_filled := 0;
 	else
-		if n_completed > 0 then
-			for i in 0 to n_channels - 1 loop
-				if i < n_completed then
-					consumer_req_stored(completed_requests(i)) := '0';
-				end if;
-			end loop;
-		end if; --1 cycle back these were removed from the buffer and their done request was returned
-		--by now should have removed r/w request
-		--same request will be sent twice otherwise
-		
 		
 		--completed requests removed from buffer, buffer << n_channels
 		--completed ids stored in buffer of length n_channels
 		--n_completed register maintained for the case where there are less
 		for channel in 0 to n_channels - 1 loop
+			done_requests(channel) <= completed_requests(channel);
 			completed_requests(channel) <= consumer_ids(channel);
 			completed_wen(channel) <= consumer_wens(channel);
+			--done_wen(channel) <= consumer_wens(channel);
 			completed_ren(channel) <= consumer_rens(channel);
+			--done_ren(channel) <= consumer_rens(channel);
 		end loop;
-		
+		n_done <= n_completed;
 		if n_filled >= n_channels then
 			n_completed <= n_channels;
 			n_filled := n_filled - n_channels;
@@ -111,6 +105,7 @@ if rising_edge(clock) then
 			n_completed <= n_filled;
 			n_filled := 0;
 		end if;
+		
 		
 		--combinational logic to determine next edge values of registers
 		
@@ -139,76 +134,120 @@ if rising_edge(clock) then
 				end if;
 			end if;
 		end loop;
-		consumer_wens(n_channels-1 downto n_filled) <= (others => '0');
-		consumer_rens(n_channels-1 downto n_filled) <= (others => '0');
+		if n_done > 0 then
+			for i in 0 to n_channels - 1 loop
+				if i < n_done then
+					consumer_req_stored(done_requests(i)) := '0';
+				end if;
+			end loop;
+		end if; --1 cycle back these were removed from the buffer and their done request was returned
+		--by now should have removed r/w request
+		--same request will be sent twice otherwise
+		
+		consumer_ids(n_filled to n_consumers-1) <= (others => 0); --rem later
+		consumer_wens(n_consumers-1 downto n_filled) <= (others => '0');
+		consumer_rens(n_consumers-1 downto n_filled) <= (others => '0');
 		--set global register to variable value
 		n_filled_reg <= n_filled;
-		report integer'image(n_filled);
+		--report integer'image(n_filled);
 	end if;
 end if;
 end process;
 
 --set channel address/data
-handle_channel:
-process(clock) 
-	variable consid : integer; --consumer id
+--handle_channel:
+--process(clock) 
+--	variable consid : integer; --consumer id
+--begin
+--if rising_edge(clock) then
+--	if reset = '1' then
+--		mem_write_en <= (others => '0');
+--	else 
+--		for i in 0 to n_channels - 1 loop
+--			if i <= n_filled_reg then
+--				consid := consumer_ids(i);
+--				if consumer_wens(i) = '0' and consumer_rens(i) = '1' then
+--					mem_write_en(i) <= '0';
+--				elsif consumer_wens(i) = '1' and consumer_rens(i) = '0' then
+--					mem_write_en(i) <= '1';
+--				else
+--					mem_write_en(i) <= '0';
+--				end if;
+--			else
+--				mem_write_en(i) <= '0';
+--			end if;
+--		end loop;
+--	end if;
+--end if;
+--end process;
+
+set_addr:
+process(reset, consumer_ids, consumer_rens, consumer_wens, consumer_read_addr, consumer_write_addr, consumer_write_data)
+variable consid : integer;
 begin
-if rising_edge(clock) then
-	if reset = '1' then
-		mem_write_en <= (others => '0');
-		mem_read_addr <= (others => '0');
-		mem_write_addr <= (others => '0');
-		mem_write_data <= (others => '0');
-	else 
-		for i in 0 to n_channels - 1 loop
-			if i <= n_filled_reg then
-				consid := consumer_ids(i);
-				if consumer_wens(i) = '0' and consumer_rens(i) = '1' then
-					mem_read_addr((i+1)*addr_bits - 1 downto i*addr_bits) <= consumer_read_addr((consid+1)*addr_bits - 1 downto consid*addr_bits);
-					mem_write_en(i) <= '0';
-				elsif consumer_wens(i) = '1' and consumer_rens(i) = '0' then
-					mem_write_addr((i+1)*addr_bits - 1 downto i*addr_bits) <= consumer_write_addr((consid+1)*addr_bits - 1 downto consid*addr_bits);
-					mem_write_data((i+1)*data_bits - 1 downto i*data_bits) <= consumer_write_data((consid+1)*data_bits - 1 downto consid*data_bits);
-					mem_write_en(i) <= '1';
-				else
-					mem_write_en(i) <= '0';
-				end if;
-			else
-				mem_write_en(i) <= '0';
-			end if;
-		end loop;
-	end if;
+if reset = '1' then
+	mem_read_addr <= (others => '0');
+	mem_write_addr <= (others => '0');
+	mem_write_data <= (others => '0');
+	mem_write_en <= (others => '0');
+else
+	for i in 0 to n_channels - 1 loop
+		consid := consumer_ids(i);
+		if consumer_wens(i) = '0' and consumer_rens(i) = '1' then
+			mem_read_addr((i+1)*addr_bits - 1 downto i*addr_bits) <= consumer_read_addr((consid+1)*addr_bits - 1 downto consid*addr_bits);
+			mem_write_addr <= (others => '0');
+			mem_write_data <= (others => '0');
+			mem_write_en(i) <= '0';
+		elsif consumer_wens(i) = '1' and consumer_rens(i) = '0' then
+			mem_read_addr <= (others => '0');
+			mem_write_addr((i+1)*addr_bits - 1 downto i*addr_bits) <= consumer_write_addr((consid+1)*addr_bits - 1 downto consid*addr_bits);
+			mem_write_data((i+1)*data_bits - 1 downto i*data_bits) <= consumer_write_data((consid+1)*data_bits - 1 downto consid*data_bits);
+			mem_write_en(i) <= '1';
+		else
+			mem_write_data <= (others => '0');
+			mem_write_addr <= (others => '0');
+			mem_read_addr <= (others => '0');
+			mem_write_en(i) <= '0';
+		end if;
+	end loop;
 end if;
 end process;
 
 --read completed requests
 return_data:
 process(clock)
-	variable consid : integer;
+	variable consid, doneid : integer;
 begin
 if rising_edge(clock) then
-	for i in 0 to n_channels - 1 loop
+	for i in 0 to n_channels - 1 loop --look through completed_requests
 		consid := completed_requests(i);
+		doneid := done_requests(i);
 		if n_completed > 0 then
 			if i <= n_completed then
 				if completed_wen(i) = '0' and completed_ren(i) = '1' then
 					consumer_read_data((consid+1)*data_bits - 1 downto consid*data_bits) <= mem_read_data((i+1)*data_bits - 1 downto i*data_bits);
-					consumer_read_done(i) <= '1';
-					consumer_write_done(i) <= '0';
+					consumer_read_done(consid) <= '1';
+					consumer_write_done(consid) <= '0';
 				elsif completed_wen(i) = '1'  and completed_ren(i) = '0' then
-					consumer_read_done(i) <= '0';
-					consumer_write_done(i) <= '1';
+					consumer_read_done(consid) <= '0';
+					consumer_write_done(consid) <= '1';
 				else
-					consumer_read_done(i) <= '0';
-					consumer_write_done(i) <= '0';
+					consumer_read_done(consid) <= '0';
+					consumer_write_done(consid) <= '0';
 				end if;
 			else
-				consumer_read_done(i) <= '0';
-				consumer_write_done(i) <= '0';
+				consumer_read_done(consid) <= '0';
+				consumer_write_done(consid) <= '0';
 			end if;
 		else
-			consumer_read_done(i) <= '0';
-			consumer_write_done(i) <= '0';
+			consumer_read_done(consid) <= '0';
+			consumer_write_done(consid) <= '0';
+		end if;
+		if n_done > 0 then
+			if i <= n_done then
+				consumer_read_done(doneid) <= '0';
+				consumer_write_done(doneid) <= '0';
+			end if;
 		end if;
 	end loop;
 end if;

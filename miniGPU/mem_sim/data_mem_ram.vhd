@@ -17,7 +17,7 @@ ENTITY data_mem_ram IS
 END data_mem_ram;
 
 ARCHITECTURE rtl OF data_mem_ram	 IS
-	TYPE MEM IS ARRAY(0 TO 2*data_addr_bits - 1) OF STD_LOGIC_VECTOR(data_data_bits-1 DOWNTO 0);
+	TYPE MEM IS ARRAY(0 TO 2**data_addr_bits - 1) OF STD_LOGIC_VECTOR(data_data_bits-1 DOWNTO 0);
 	SIGNAL ram_block: MEM;
 	SIGNAL read_address_reg : std_logic_vector(data_addr_bits - 1 downto 0);
 BEGIN

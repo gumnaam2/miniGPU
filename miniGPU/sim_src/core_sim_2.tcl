@@ -108,7 +108,10 @@ vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfiven
 #sim:/core_sim_2/dut_inst/ram/cont/clock
 
 add wave -position insertpoint sim:/core_sim_2/dut_inst/progmem/cont/*
+add wave -position insertpoint sim:/core_sim_2/dut_inst/progmem/cont/read_requests/consumer_req_stored
+add wave -position insertpoint sim:/core_sim_2/dut_inst/progmem/cont/read_requests/n_filled
 add wave -position insertpoint sim:/core_sim_2/dut_inst/ram/cont/*
+
 #add wave -position insertpoint sim:/core_sim_2/dut_inst/ram/cont/read_requests/*
 #add wave -position insertpoint sim:/core_sim_2/dut_inst/ram/cont/handle_channel/*
 

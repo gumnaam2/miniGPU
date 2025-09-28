@@ -8,8 +8,7 @@ port(
 	alu_select											:in std_logic_vector(1 downto 0);
 	rs_address, rt_address, rd_address			:in std_logic_vector(3 downto 0);
 	immediate, current_pc							:in std_logic_vector(7 downto 0);
-	block_id												:in std_logic_vector(7 downto 0);
-	thread_id											:in std_logic_vector(1 downto 0);
+	block_id, thread_id, grid_num_threads		:in std_logic_vector(7 downto 0);
 	nzp_write_enable, reg_write_enable			:in std_logic;
 	pc_out_mux											:in std_logic;
 	mem_write_enable, mem_read_enable						:in std_logic;
@@ -26,7 +25,7 @@ port(
 );
 end thread_struct;
 
-architecture connections of thread_struct is
+architecture arch of thread_struct is
 	component rf is port (
 			clock,reset,enable:in std_logic;
 			core_state			:in std_logic_vector(2 downto 0);
@@ -38,7 +37,8 @@ architecture connections of thread_struct is
 			rt_address			:in std_logic_vector(3 downto 0);
 			rd_address			:in std_logic_vector(3 downto 0);
 			block_id				:in std_logic_vector(7 downto 0);
-			thread_id			:in std_logic_vector(1 downto 0);
+			thread_id			:in std_logic_vector(7 downto 0);
+			grid_num_threads	:in std_logic_vector(7 downto 0);
 			rs_data				:out std_logic_vector(7 downto 0);
 			rt_data				:out std_logic_vector(7 downto 0)
 		 );
@@ -102,6 +102,7 @@ begin
 			 rt_address			=> rt_address,
 			 rd_address			=> rd_address,
 			 block_id			=> block_id,
+			 grid_num_threads => grid_num_threads,
 			 thread_id			=> thread_id,
 			 rs_data				=> rs_data_wire,
 			 rt_data				=> rt_data_wire
@@ -152,5 +153,5 @@ begin
 			mem_write_valid	 => lsu_mem_write_valid
 		);
 	thread_lsu_state <= out_lsu_state_wire;
-end connections;
+end arch;
 	

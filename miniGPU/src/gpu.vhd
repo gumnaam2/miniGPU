@@ -170,4 +170,5 @@ nth_core: entity work.core(connections) port map (
 	mem_read_address_arr => lsu_mem_read_address_arr(n_threads*data_addr_bits*(i+1) - 1 downto n_threads*data_addr_bits*i)
 );
 end generate;
+
 end gpu_arch;

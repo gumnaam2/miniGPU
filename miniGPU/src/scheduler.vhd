@@ -10,11 +10,11 @@ entity scheduler is port(
 	decoded_ret									: in std_logic; --whether the program end is reached
 	mem_read_enable, mem_write_enable	: in std_logic; --enable read/write from the memory
 	fetcher_state	: in std_logic_vector(2 downto 0);
-	lsu_state		: in std_logic_vector(7 downto 0);
-	new_pc			: in std_logic_vector(7 downto 0); --next program line to be fetched
+	lsu_state		: in std_logic_vector(n_threads*2 - 1 downto 0);
+	new_pc			: in std_logic_vector(prog_addr_bits - 1 downto 0); --next program line to be fetched
 	
 	core_state		: buffer std_logic_vector(2 downto 0);
-	current_pc		: out std_logic_vector(7 downto 0);
+	current_pc		: out std_logic_vector(prog_addr_bits - 1 downto 0);
 	done				: out std_logic
 );
 

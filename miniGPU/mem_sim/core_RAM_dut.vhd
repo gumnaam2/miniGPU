@@ -5,8 +5,8 @@ use work.types.all;
 
 entity core_RAM_dut is port(
 	clock, reset, start, enable: in std_logic;
-	block_id : in std_logic_vector(7 downto 0);
-	thread_id : in std_logic_vector(n_threads*2 - 1 downto 0);
+	block_id, grid_num_threads : in std_logic_vector(7 downto 0);
+	thread_id : in std_logic_vector(n_threads*8 - 1 downto 0);
 	done : out std_logic
 	);
 end core_RAM_dut;
@@ -30,7 +30,7 @@ begin
 
 ram: entity work.ram_with_controller(arch)
 generic map(
-	num_consumers => 4
+	num_consumers => n_threads
 )
 port map(
 	reset => reset,
@@ -75,7 +75,8 @@ core: entity work.core(connections) port map(
 
 	block_id                => block_id,
 	thread_id               => thread_id,
-
+	grid_num_threads			=> grid_num_threads,
+	thread_count				=> "111",
 	fetcher_mem_read_valid  => fetcher_mem_read_valid,
 	done                    => done,
 

@@ -1,5 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 use work.types.all;
 
 entity core is port
@@ -7,8 +9,9 @@ entity core is port
 	clock, reset, start, enable: in std_logic;
 	fetcher_mem_read_ready : in std_logic_vector(prog_num_channels - 1 downto 0);
 	mem_read_ready_arr, mem_write_ready_arr : in std_logic_vector(n_threads - 1 downto 0); 
-	block_id : in std_logic_vector(7 downto 0);
-	thread_id : in std_logic_vector(n_threads*2 - 1 downto 0);
+	grid_num_threads, block_id : in std_logic_vector(7 downto 0);
+	thread_id : in std_logic_vector(n_threads*8 - 1 downto 0);
+	thread_count : in std_logic_vector(n_threads_bits - 1 downto 0);
 	fetcher_mem_read_valid, done : out std_logic;
 	mem_read_data_arr : in  std_logic_vector(8*(n_threads) - 1 downto 0);
 	fetcher_mem_read_data : in std_logic_vector(prog_data_bits - 1 downto 0);
@@ -18,12 +21,13 @@ entity core is port
 );
 end core;
 
-architecture connections of core is
+architecture arch of core is
 	signal decoded_ret, mem_read_enable, mem_write_enable : std_logic;
 	signal fetcher_state, core_state : std_logic_vector(2 downto 0);
 	signal lsu_state, new_pc, current_pc : std_logic_vector(7 downto 0);
 	signal fetcher_instruction : std_logic_vector(15 downto 0);
 	signal fetcher_mem_write_ready: std_logic;
+	
 	
 	signal nzp_instr : std_logic_vector(2 downto 0);
 	signal rs_address, rt_address, rd_address: std_logic_vector(3 downto 0);
@@ -34,7 +38,8 @@ architecture connections of core is
 	signal instruction : std_logic_vector(15 downto 0);
 
 --	signal block_id: std_logic_vector(7 downto 0);
-	signal thread_lsu_state_arr : std_logic_vector(7 downto 0);
+	signal thread_lsu_state_arr : std_logic_vector(n_threads*2 - 1 downto 0);
+	signal thread_enable : std_logic_vector(n_threads - 1 downto 0);
 
 
 --	type vector_7_arr is array(3 downto 0) of std_logic_vector(7 downto 0);
@@ -48,7 +53,7 @@ architecture connections of core is
 		decoded_ret									: in std_logic; --whether the program end is reached
 		mem_read_enable, mem_write_enable	: in std_logic; --enable read/write from the memory
 		fetcher_state	: in std_logic_vector(2 downto 0);
-		lsu_state		: in std_logic_vector(7 downto 0);
+		lsu_state		: in std_logic_vector(2*n_threads - 1 downto 0);
 		new_pc			: in std_logic_vector(7 downto 0); --next program line to be fetched
 		
 		core_state		: buffer std_logic_vector(2 downto 0);
@@ -84,8 +89,8 @@ architecture connections of core is
 		alu_select											:in std_logic_vector(1 downto 0);
 		rs_address, rt_address, rd_address			:in std_logic_vector(3 downto 0);
 		immediate, current_pc							:in std_logic_vector(7 downto 0);
-		block_id												:in std_logic_vector(7 downto 0);
-		thread_id											:in std_logic_vector(1 downto 0); --ID of a particular thread
+		block_id, grid_num_threads						:in std_logic_vector(7 downto 0);
+		thread_id											:in std_logic_vector(7 downto 0); --ID of a particular thread
 		nzp_write_enable, reg_write_enable			:in std_logic;
 		pc_out_mux											:in std_logic;
 		mem_write_enable, mem_read_enable			:in std_logic;
@@ -102,6 +107,22 @@ architecture connections of core is
 	);
 	end component;
 begin
+	enable_threads: process(clock) begin
+		if rising_edge(clock) then
+			if enable = '1' then
+				for i in 0 to n_threads - 1 loop
+					if i < to_integer(unsigned(thread_count)) then
+						thread_enable(i) <= '1';
+					else
+						thread_enable(i) <= '0';
+					end if;
+				end loop;
+			else
+				thread_enable <= (others => '0');
+			end if;
+		end if;
+	end process;
+
 	scheduler_block: scheduler port map (
 		clock => clock, reset => reset, start => start,
 		decoded_ret => decoded_ret, mem_read_enable => mem_read_enable, mem_write_enable => mem_write_enable,
@@ -126,13 +147,14 @@ begin
 		reg_input_mux => reg_input_mux, alu_select => alu_select,
 		pc_out_mux => pc_out_mux, decoded_ret => decoded_ret);
 	threads: for i in 0 to n_threads - 1 generate
-		thread: thread_struct port map(
-		clock => clock, reset => reset, enable => enable,
+		thread: entity work.thread_struct(arch) port map(
+		clock => clock, reset => reset,
+		enable => thread_enable(i),
 		core_state => core_state, alu_select => alu_select,
 		rs_address => rs_address, rt_address => rt_address, rd_address => rd_address,
 		immediate => immediate, current_pc => current_pc,
-		block_id => block_id,
-		thread_id => thread_id((i+1)*2 - 1 downto i*2),
+		block_id => block_id, grid_num_threads => grid_num_threads,
+		thread_id => thread_id((i+1)*8 - 1 downto i*8),
 		nzp_write_enable => nzp_write_enable, reg_write_enable => reg_write_enable,
 		pc_out_mux => pc_out_mux, mem_write_enable => mem_write_enable, mem_read_enable => mem_read_enable,
 		nzp_instr => nzp_instr, reg_input_mux => reg_input_mux, 
@@ -153,4 +175,4 @@ begin
 --	mem_write_address <= mem_write_address_arr(0);
 --	mem_write_data <= mem_write_data_arr(0);
 	new_pc <= new_pc_arr(0);
-end connections;
+end arch;

@@ -1,2 +1,12 @@
 *.bak
 *.qpf
+*.qsf
+*.qws
+*.cmp
+*.rpt
+*.vho
+.qsys_edit/
+miniGPU/db/
+miniGPU/incremental_db/
+miniGPU/output_files/
+miniGPU/simulation/

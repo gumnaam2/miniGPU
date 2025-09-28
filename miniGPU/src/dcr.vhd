@@ -4,21 +4,23 @@ use work.types.all;
 
 entity dcr is port(
 	clock, reset, dcr_write_enable : in std_logic;
-	dcr_data : in std_logic_vector(7 downto 0);
+	grid_num_blocks_in, grid_num_threads_in: in std_logic_vector(7 downto 0);
 	
-	thread_count : out std_logic_vector(7 downto 0) --total number of threads in the block
+	grid_num_blocks, grid_num_threads : out std_logic_vector(7 downto 0)
 );
 end dcr;
 
-architecture register_write of dcr is
+architecture arch of dcr is
 begin
 	process(clock) begin
 	if rising_edge(clock) then
 		if reset = '1' then
-			thread_count <= (others => '0');
+			grid_num_blocks <= (others => '0');
+			grid_num_threads <= (others => '0');
 		elsif dcr_write_enable = '1' then
-			thread_count <= dcr_data;
+			grid_num_blocks <= grid_num_blocks_in;
+			grid_num_threads <= grid_num_threads_in;
 		end if;
 	end if;
 	end process;
-end register_write;
+end arch;

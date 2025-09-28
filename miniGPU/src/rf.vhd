@@ -17,7 +17,8 @@ entity rf is
       rt_address			:in std_logic_vector(3 downto 0);
       rd_address			:in std_logic_vector(3 downto 0);
       block_id				:in std_logic_vector(7 downto 0);
-		thread_id			:in std_logic_vector(1 downto 0);
+		grid_num_threads	:in std_logic_vector(7 downto 0);
+		thread_id			:in std_logic_vector(7 downto 0);
       rs_data				:out std_logic_vector(7 downto 0);
       rt_data				:out std_logic_vector(7 downto 0)
     );
@@ -38,14 +39,15 @@ begin
 				for i in 0 to 13 loop
 					registers(i) <= (others => '0');
 				end loop;
-				registers(14) <= "00000100";--threads per block
+				registers(14) <= (others => '0');--threads per block
 				registers(15) <= (others => '0');--thread ID
 				rs_data <= (others => '0');
 				rt_data <= (others => '0');
 
 			elsif enable = '1' then
 				registers(13) <= block_id;--block_id
-				registers(15) <= "000000"&thread_id;
+				registers(14) <= grid_num_threads;
+				registers(15) <= thread_id;
 				if reg_write_enable = '1' then --write
 					if core_state = "011" then --write
 						rt_data <= registers(to_integer(unsigned(rt_address)));

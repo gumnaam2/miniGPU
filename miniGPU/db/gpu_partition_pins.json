@@ -4,7 +4,7 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "done",
+					"name" : "grid_done",
 					"strict" : false
 				},
 				{
@@ -12,79 +12,83 @@
 					"strict" : false
 				},
 				{
-					"name" : "reset",
-					"strict" : false
-				},
-				{
 					"name" : "start",
 					"strict" : false
 				},
 				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_blocks_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dcr_write_enable",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_blocks_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_blocks_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_blocks_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_blocks_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_blocks_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_blocks_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_blocks_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_threads_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_threads_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_threads_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_threads_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_threads_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_threads_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_threads_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "grid_num_threads_in[2]",
+					"strict" : false
+				},
+				{
 					"name" : "enable",
-					"strict" : false
-				},
-				{
-					"name" : "block_id[1]",
-					"strict" : false
-				},
-				{
-					"name" : "thread_id[1]",
-					"strict" : false
-				},
-				{
-					"name" : "block_id[0]",
-					"strict" : false
-				},
-				{
-					"name" : "thread_id[0]",
-					"strict" : false
-				},
-				{
-					"name" : "block_id[3]",
-					"strict" : false
-				},
-				{
-					"name" : "block_id[2]",
-					"strict" : false
-				},
-				{
-					"name" : "block_id[5]",
-					"strict" : false
-				},
-				{
-					"name" : "block_id[4]",
-					"strict" : false
-				},
-				{
-					"name" : "block_id[7]",
-					"strict" : false
-				},
-				{
-					"name" : "block_id[6]",
-					"strict" : false
-				},
-				{
-					"name" : "thread_id[3]",
-					"strict" : false
-				},
-				{
-					"name" : "thread_id[5]",
-					"strict" : false
-				},
-				{
-					"name" : "thread_id[7]",
-					"strict" : false
-				},
-				{
-					"name" : "thread_id[4]",
-					"strict" : false
-				},
-				{
-					"name" : "thread_id[2]",
-					"strict" : false
-				},
-				{
-					"name" : "thread_id[6]",
 					"strict" : false
 				}
 			]
