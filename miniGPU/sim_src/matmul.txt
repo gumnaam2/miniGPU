@@ -1,0 +1,25 @@
+const 0 0 #a00
+mul 1 14 14 #b00
+const 2 0 #ctr
+const 3 0 #cij
+const 12 1 #constant 1
+const 11 2 #constant 2
+mul 4 13 14 #start
+add 4 2 4
+add 4 4 0 #addr aij
+ldr 5 4 #aij
+mul 4 2 14
+add 4 4 15
+add 4 4 1
+ldr 6 4 #bij
+mul 7 5 6 #cij incr
+add 3 3 7 #cij
+add 2 2 12 #ctr++
+cmp 2 14
+brnzp 100 6
+mul 5 11 1 #c00 location
+mul 8 13 14
+add 8 8 15
+add 8 8 5
+str 8 3
+ret

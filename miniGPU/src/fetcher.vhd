@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity fetcher is port(
 	clock, reset, mem_read_ready	: in std_logic;
-	core_state			: in std_logic_vector(2 downto 0);
+	sm_state			: in std_logic_vector(2 downto 0);
 	current_pc			: in std_logic_vector(7 downto 0);
 	mem_read_data		: in std_logic_vector(15 downto 0);
 	
@@ -33,7 +33,7 @@ process(clock) begin
 			mem_read_valid <= '0';
 		else
 			if fetcher_state = IDLE then
-				if core_state = FETCH then
+				if sm_state = FETCH then
 					fetcher_state <= FETCHING;
 					mem_read_address <= current_pc;
 					mem_read_valid <= '1'; -- request address data from memory, signal we are ready to read
@@ -45,7 +45,7 @@ process(clock) begin
 					fetcher_state <= FETCHED;
 				end if;
 			elsif fetcher_state = FETCHED then
-				if core_state = DECODE then --once the scheduler has registered
+				if sm_state = DECODE then --once the scheduler has registered
 					fetcher_state <= IDLE;
 				end if;
 			end if;

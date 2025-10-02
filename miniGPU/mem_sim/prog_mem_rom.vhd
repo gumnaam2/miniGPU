@@ -16,7 +16,7 @@ end entity;
 architecture rtl of prog_mem_rom is
 	-- Build a 2-D array type for the ROM
 	subtype word_t is std_logic_vector(prog_data_bits-1 downto 0);
-	type memory_t is array(2**prog_addr_bits - 1 downto 0) of word_t;
+	type memory_t is array(0 to 2**prog_addr_bits - 1) of word_t;
 	
 	function to_std_logic_vector(x: bit_vector) return std_logic_vector is
 		alias lx: bit_vector(1 to x'length) is x;
@@ -36,7 +36,7 @@ architecture rtl of prog_mem_rom is
 		type program_type is array(0 to 2**prog_addr_bits - 1) of std_logic_vector(prog_data_bits-1 downto 0);
 		variable program : program_type := (others => (others => '0'));
 		variable tmp : memory_t := (others => (others => '0'));
-		File INFILE: text open read_mode is "C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/program.txt";
+		File INFILE: text open read_mode is "program.txt";
 		FILE OUTFILE: text  open write_mode is "outputs.txt";
 		variable input_vector_var: bit_vector (15 downto 0);	
 		variable inp_line : Line;
@@ -47,7 +47,7 @@ architecture rtl of prog_mem_rom is
 			readLine (INFILE, inp_line);
 			read (inp_line, input_vector_var);
 			program(line_count) := to_std_logic_vector(input_vector_var);
-			report integer'image(to_integer(unsigned(program(line_count))));
+--			report integer'image(to_integer(unsigned(program(line_count))));
 			line_count := line_count + 1;
 		end loop;
 		

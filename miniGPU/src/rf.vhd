@@ -7,7 +7,7 @@ entity rf is
       clock					:in std_logic;
       reset					:in std_logic;
       enable				:in std_logic;
-      core_state			:in std_logic_vector(2 downto 0);
+      sm_state			:in std_logic_vector(2 downto 0);
       reg_write_enable	:in std_logic;
       alu_out				:in std_logic_vector(7 downto 0);
       lsu_out				:in std_logic_vector(7 downto 0);
@@ -34,7 +34,7 @@ begin
 	process(clock)
 
 	begin
-		if rising_edge(clock) then
+		if falling_edge(clock) then
 			if reset = '1' then
 				for i in 0 to 13 loop
 					registers(i) <= (others => '0');
@@ -48,12 +48,12 @@ begin
 				registers(13) <= block_id;--block_id
 				registers(14) <= grid_num_threads;
 				registers(15) <= thread_id;
+				if sm_state = "011" then --write
+					rt_data <= registers(to_integer(unsigned(rt_address)));
+					rs_data <= registers(to_integer(unsigned(rs_address)));
+				end if;
 				if reg_write_enable = '1' then --write
-					if core_state = "011" then --write
-						rt_data <= registers(to_integer(unsigned(rt_address)));
-						rs_data <= registers(to_integer(unsigned(rs_address)));
-				  end if;
-				  if core_state = "110" then --read from either alu_out, lsu_out, immediate
+				  if sm_state = "110" then --read from either alu_out, lsu_out, immediate
 						if to_integer(unsigned(rd_address)) < 13 then
 							 case reg_input_mux is
 								when "00" =>

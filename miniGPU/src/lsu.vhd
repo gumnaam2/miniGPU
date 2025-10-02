@@ -5,7 +5,7 @@ entity lsu is
 	port (
 		clock, reset, enable							:in std_logic;
 		mem_read_enable, mem_write_enable		:in std_logic;
-		core_state										:in std_logic_vector(2 downto 0);
+		sm_state										:in std_logic_vector(2 downto 0);
 		rs_out, rt_out									:in std_logic_vector(7 downto 0);
 		mem_read_ready, mem_write_ready			:in std_logic;
 		mem_read_data									:in std_logic_vector(7 downto 0);
@@ -35,7 +35,7 @@ process(clock) begin
 		elsif enable = '1' then
 			if mem_read_enable = '1' then --load instruction
 				if lsu_state = "00" then --IDLE
-					if core_state = "011" then
+					if sm_state = "011" then
 						lsu_state <= "01";
 					end if;
 				elsif lsu_state = "01" then --REQ
@@ -50,13 +50,13 @@ process(clock) begin
 					else
 					end if;
 				elsif lsu_state = "11" then --DONE
-					if core_state = "110" then
+					if sm_state = "110" then
 						lsu_state <= "00";
 					end if;
 				end if;
 			elsif mem_write_enable = '1' then --store instruction
 				if lsu_state = "00" then
-					if core_state = "011" then
+					if sm_state = "011" then
 						lsu_state <= "01";
 					end if;
 				elsif lsu_state = "01" then
@@ -70,7 +70,7 @@ process(clock) begin
 						mem_write_valid <= '0';
 					end if;
 				elsif lsu_state = "11" then
-					if core_state = "110" then
+					if sm_state = "110" then
 						lsu_state <= "00";
 					end if;
 				end if;

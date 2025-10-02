@@ -1,0 +1,7 @@
+const 0 1
+const 1 2
+cmp 0 1
+brnzp 001 5
+str 0 0
+str 1 1
+ret

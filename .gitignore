@@ -10,3 +10,4 @@ miniGPU/db/
 miniGPU/incremental_db/
 miniGPU/output_files/
 miniGPU/simulation/
+.gitignore

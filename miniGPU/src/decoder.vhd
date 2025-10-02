@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity decoder is port(
 	clock, reset		: in std_logic;
-	core_state			: in std_logic_vector(2 downto 0);
+	sm_state			: in std_logic_vector(2 downto 0);
 	instr			: in std_logic_vector(15 downto 0); -- the program line
 	
 	rs_address, rt_address, rd_address	: out std_logic_vector(3 downto 0);
@@ -16,14 +16,14 @@ entity decoder is port(
 	reg_write_enable, nzp_write_enable, mem_read_enable, mem_write_enable	: out std_logic;
 	
 	reg_input_mux	: out std_logic_vector(1 downto 0); -- RF to read which of ALU/LSU/IMM
-	alu_select		: out std_logic_vector(1 downto 0); -- which op ALU performs
+	alu_select		: out std_logic_vector(2 downto 0); -- which op ALU performs
 	pc_out_mux		: out std_logic; -- whether to load an immediate pc line
 	decoded_ret		: out std_logic --RETURN signal, to end the program
 );
 end decoder;
 
-architecture conditional of decoder is
-	--core state codes
+architecture arch of decoder is
+	--sm state codes
 	constant DECODE : std_logic_vector(2 downto 0) := "010";
 	
 	--instruction mnemonics
@@ -37,6 +37,10 @@ architecture conditional of decoder is
 	constant LDR : std_logic_vector(3 downto 0) := "0111";
 	constant STR : std_logic_vector(3 downto 0) := "1000";
 	constant CONST : std_logic_vector(3 downto 0) := "1001";
+	constant BAND : std_logic_vector(3 downto 0) := "1010";
+	constant BOR : std_logic_vector(3 downto 0) := "1011";
+	constant BXOR : std_logic_vector(3 downto 0) := "1100";
+	constant BNOT : std_logic_vector(3 downto 0) := "1101";
 	constant RET : std_logic_vector(3 downto 0) := "1111";
 begin
 process(clock) begin
@@ -55,7 +59,7 @@ process(clock) begin
 			alu_select <= (others => '0');
 			pc_out_mux <= '0';
 			decoded_ret <= '0';
-		elsif core_state = DECODE then
+		elsif sm_state = DECODE then
 			rd_address <= instr(11 downto 8);
 			rs_address <= instr(7 downto 4);
 			rt_address <= instr(3 downto 0);
@@ -79,26 +83,42 @@ process(clock) begin
 				when ADD =>
 					reg_write_enable <= '1';
 					reg_input_mux <= "00"; --ALU output to be written to Rd, rather than immediate or LSU output
-					alu_select <= "00"; --ADDITION code
+					alu_select <= "000"; --ADDITION code
 				when SUB =>
 					reg_write_enable <= '1';
 					reg_input_mux <= "00";
-					alu_select <= "01";
+					alu_select <= "001";
 				when MUL =>
 					reg_write_enable <= '1';
 					reg_input_mux <= "00";
-					alu_select <= "10";
+					alu_select <= "010";
 				when DIV =>
 					reg_write_enable <= '1';
 					reg_input_mux <= "00";
-					alu_select <= "11";
+					alu_select <= "011";
+				when BAND =>
+					reg_write_enable <= '1';
+					reg_input_mux <= "00";
+					alu_select <= "100";
+				when BOR =>
+					reg_write_enable <= '1';
+					reg_input_mux <= "00";
+					alu_select <= "101";
+				when BXOR =>
+					reg_write_enable <= '1';
+					reg_input_mux <= "00";
+					alu_select <= "110";
+				when BNOT =>
+					reg_write_enable <= '1';
+					reg_input_mux <= "00";
+					alu_select <= "111";
 				when LDR =>
 					mem_read_enable <= '1';
 					reg_write_enable <= '1';
 					reg_input_mux <= "01";
 				when STR =>
 					mem_write_enable <= '1';
-					reg_write_enable <= '1';
+					reg_write_enable <= '0';
 				when CONST =>
 					reg_write_enable <= '1';
 					reg_input_mux <= "10"; --register file takes immediate value and writes to output register
@@ -110,4 +130,4 @@ process(clock) begin
 		end if;
 	end if;
 end process;
-end conditional;
+end arch;

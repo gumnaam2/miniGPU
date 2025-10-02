@@ -5,9 +5,12 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+exec py ../../sim_src/assembler.py ../../sim_src/matmul.txt 
+#../../sim_src/data.txt
+#C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/types_pkg.vhd}
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/dcr.vhd}
-vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/thread_struct.vhd}
+vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd}
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/rf.vhd}
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/pc_nzp.vhd}
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/lsu.vhd}
@@ -15,7 +18,7 @@ vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGP
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/decoder.vhd}
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/alu.vhd}
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/scheduler.vhd}
-vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/core.vhd}
+vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/src/sm.vhd}
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/prog_mem_rom.vhd}
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/data_mem_ram.vhd}
 vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGPU/mem_sim/mem_controller_2.vhd}
@@ -29,14 +32,15 @@ vcom -2008 -work work {C:/Users/Siddhant Kaul/Desktop/college/SoC/miniGPU/miniGP
 vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  gpu_sim
 
 add wave *
-add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/dispatcher_inst/*
+#add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/dispatcher_inst/*
 #add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/sm_insts(0)/ith_sm/*
-#add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/sm_insts(1)/ith_sm/*
-add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/dispatcher_inst/line__30/*
-#add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/data_mem/cont/*
+#add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/sm_insts(0)/ith_sm/threads(0)/thread/rf_block/*
+add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/sm_insts(0)/ith_sm/*
+#add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/dispatcher_inst/line__30/*
+add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/data_mem/cont/*
 #add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/sm_insts(0)/ith_sm/threads(0)/thread/*
 #add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/sm_insts(0)/ith_sm/threads(1)/thread/*
-
+#add wave -position insertpoint sim:/gpu_sim/gpu_dut_inst/sm_insts(0)/ith_sm/threads(1)/thread/pc_nzp_block/*
 #view structure
 #view signals
 run -all

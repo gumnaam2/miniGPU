@@ -2,27 +2,27 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 package types is
-	constant n_cores : integer := 4;
-	constant n_threads : integer := 4;
-	constant n_threads_bits : integer := 3;
+	constant n_sms : integer := 4;
+	constant n_cores : integer := 4; --cores per sm
+	constant n_threads_bits : integer := 4;
 	
-	constant clk_period : time := 10 ns;
+	constant clk_period : time := 100 ns;
 	
 	constant data_num_channels : integer := 1;
 	constant prog_num_channels : integer := 1;
-	constant data_num_consumers : integer := n_cores*n_threads;
-	constant prog_num_consumers : integer := n_cores;
+	constant data_num_consumers : integer := n_sms*n_cores;
+	constant prog_num_consumers : integer := n_sms;
 	constant data_addr_bits : integer := 8;
 	constant prog_addr_bits : integer := 8;
 	constant data_data_bits : integer := 8;
 	constant prog_data_bits : integer := 16;
 	
-	type logic_arr is array(n_threads - 1 downto 0) of std_logic;
-	type vector_2_arr is array(n_threads - 1 downto 0) of std_logic_vector(1 downto 0);
-	type vector_8_arr is array(n_threads - 1 downto 0) of std_logic_vector(7 downto 0);
-	type vector_16_arr is array(n_threads - 1 downto 0) of std_logic_vector(15 downto 0);
-	type sm_thread_type is array(n_cores*2 - 1 downto 0) of integer range 1 to 4;
-	type data_mem_multicore_type is array (0 to n_cores - 1) of vector_8_arr;
+	type logic_arr is array(n_cores - 1 downto 0) of std_logic;
+	type vector_2_arr is array(n_cores - 1 downto 0) of std_logic_vector(1 downto 0);
+	type vector_8_arr is array(n_cores - 1 downto 0) of std_logic_vector(7 downto 0);
+	type vector_16_arr is array(n_cores - 1 downto 0) of std_logic_vector(15 downto 0);
+	type sm_thread_type is array(n_sms*2 - 1 downto 0) of integer range 1 to 4;
+	type data_mem_multicore_type is array (0 to n_sms - 1) of vector_8_arr;
 	
 	type vector_arr is array(natural range <>) of std_logic_vector;
 	

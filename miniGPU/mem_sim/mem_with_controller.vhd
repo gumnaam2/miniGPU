@@ -40,7 +40,7 @@ generic map(
 	data_bits => data_bits,
 	addr_bits => addr_bits,
 	n_channels => num_channels,
-	n_consumers => n_cores*n_threads
+	n_consumers => n_sms*n_cores
 )
 port map(
 	reset => reset,
@@ -112,7 +112,7 @@ generic map(
 	data_bits => prog_data_bits,
 	addr_bits => prog_addr_bits,
 	n_channels => prog_num_channels,
-	n_consumers => n_cores
+	n_consumers => n_sms
 )
 port map(
 	reset => reset,

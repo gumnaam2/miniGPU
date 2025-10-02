@@ -47,7 +47,7 @@ architecture arch of mem_controller_2 is
 	signal completed_requests, next_completed_requests: req_arr; 
 	signal done_requests : req_arr; --to be signalled "done"
 	signal n_completed, n_done : integer range 0 to n_channels := 0; -- number of completed requests waiting to be returned to consumer
-	signal n_filled_reg, next_n_filled : integer range 0 to n_consumers := 0;
+	signal n_filled_reg: integer range 0 to n_consumers := 0;
 	--whether completed signals were write or not
 	signal completed_wen, completed_ren : std_logic_vector(n_channels - 1 downto 0);
 	--signal done_wen, done_ren : std_logic_vector(n_channels - 1 downto 0);
@@ -182,7 +182,7 @@ end process;
 --end process;
 
 set_addr:
-process(reset, consumer_ids, consumer_rens, consumer_wens, consumer_read_addr, consumer_write_addr, consumer_write_data)
+process(n_filled_reg, reset, consumer_ids, consumer_rens, consumer_wens, consumer_read_addr, consumer_write_addr, consumer_write_data)
 variable consid : integer;
 begin
 if reset = '1' then
@@ -192,22 +192,29 @@ if reset = '1' then
 	mem_write_en <= (others => '0');
 else
 	for i in 0 to n_channels - 1 loop
-		consid := consumer_ids(i);
-		if consumer_wens(i) = '0' and consumer_rens(i) = '1' then
-			mem_read_addr((i+1)*addr_bits - 1 downto i*addr_bits) <= consumer_read_addr((consid+1)*addr_bits - 1 downto consid*addr_bits);
-			mem_write_addr <= (others => '0');
-			mem_write_data <= (others => '0');
-			mem_write_en(i) <= '0';
-		elsif consumer_wens(i) = '1' and consumer_rens(i) = '0' then
-			mem_read_addr <= (others => '0');
-			mem_write_addr((i+1)*addr_bits - 1 downto i*addr_bits) <= consumer_write_addr((consid+1)*addr_bits - 1 downto consid*addr_bits);
-			mem_write_data((i+1)*data_bits - 1 downto i*data_bits) <= consumer_write_data((consid+1)*data_bits - 1 downto consid*data_bits);
-			mem_write_en(i) <= '1';
+		if i <= n_filled_reg then
+			consid := consumer_ids(i);
+			if consumer_wens(i) = '0' and consumer_rens(i) = '1' then
+				mem_read_addr((i+1)*addr_bits - 1 downto i*addr_bits) <= consumer_read_addr((consid+1)*addr_bits - 1 downto consid*addr_bits);
+				mem_write_addr <= (others => '0');
+				mem_write_data <= (others => '0');
+				mem_write_en(i) <= '0';
+			elsif consumer_wens(i) = '1' and consumer_rens(i) = '0' then
+				mem_read_addr <= (others => '0');
+				mem_write_addr((i+1)*addr_bits - 1 downto i*addr_bits) <= consumer_write_addr((consid+1)*addr_bits - 1 downto consid*addr_bits);
+				mem_write_data((i+1)*data_bits - 1 downto i*data_bits) <= consumer_write_data((consid+1)*data_bits - 1 downto consid*data_bits);
+				mem_write_en(i) <= '1';
+			else
+				mem_write_data <= (others => '0');
+				mem_write_addr <= (others => '0');
+				mem_read_addr <= (others => '0');
+				mem_write_en(i) <= '0';
+			end if;
 		else
-			mem_write_data <= (others => '0');
-			mem_write_addr <= (others => '0');
 			mem_read_addr <= (others => '0');
-			mem_write_en(i) <= '0';
+			mem_write_addr <= (others => '0');
+			mem_write_data <= (others => '0');
+			mem_write_en <= (others => '0');
 		end if;
 	end loop;
 end if;
