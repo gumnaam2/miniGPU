@@ -8,13 +8,13 @@ end gpu_sim;
 
 architecture sim of gpu_sim is
 	signal clock, start, reset, enable, dcr_write_enable : std_logic;
-	--signal grid_num_blocks, grid_num_threads : std_logic_vector(7 downto 0);
+	signal grid_num_blocks, grid_num_threads : std_logic_vector(7 downto 0);
 	signal grid_done : std_logic;
 
 begin
 
 gpu_dut_inst : entity work.gpu_dut(arch) port map(clock, start, reset, enable, dcr_write_enable,
-	--grid_num_blocks, grid_num_threads,
+	grid_num_blocks, grid_num_threads,
 	grid_done);
 
 clk_sim : process begin

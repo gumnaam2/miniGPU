@@ -5,7 +5,7 @@ use work.types.all;
 
 entity gpu_dut is port(
 	clock, start, reset, enable, dcr_write_enable : in std_logic;
---	grid_num_blocks_in, grid_num_threads_in : in std_logic_vector(7 downto 0);
+	grid_num_blocks_in, grid_num_threads_in : in std_logic_vector(7 downto 0);
 	grid_done : out std_logic
 );
 end gpu_dut;
@@ -47,8 +47,8 @@ dcr_inst: entity work.dcr(arch) port map(
 	clock => clock,
 	reset => reset,
 	dcr_write_enable => dcr_write_enable,
-	grid_num_blocks_in => "00001000", --grid_num_blocks_in,
-	grid_num_threads_in => "00001000", --grid_num_threads_in,
+	grid_num_blocks_in => grid_num_blocks_in, --"00001000", 
+	grid_num_threads_in => grid_num_threads_in,-- "00001000", 
 	
 	grid_num_blocks => grid_num_blocks,
 	grid_num_threads => grid_num_threads);
